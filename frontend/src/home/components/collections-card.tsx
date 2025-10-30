@@ -25,7 +25,7 @@ export default function CollectionsCard({
             <span className="text-text-secondary font-mono">ETH</span>
           </span>
           <span className="inline-flex animate-change-animation-bg animate-negative-change-bg text-success-1">
-            "+0.06%"
+            +0.06%
           </span>
         </div>
       </div>

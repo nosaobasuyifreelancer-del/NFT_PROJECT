@@ -5,19 +5,31 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/shared/components/ui/command";
-import { SearchIcon } from "lucide-react";
+import { Menu, SearchIcon } from "lucide-react";
 import { useState } from "react";
+import HomeLogo from "@/shared/assets/logo.svg?react";
 
-export default function Header() {
+export default function Header({
+  onToggleSidebar,
+}: {
+  onToggleSidebar: () => void;
+}) {
   const [openSearch, setOpenSearch] = useState(false);
   return (
     <div className="sticky top-0 z-10 flex h-sm-top-nav py-3 lg:h-lg-top-nav transition-colors duration-200 ease-out-quint border-b border-border-1 bg-bg-primary">
       <div className="mx-auto w-full max-w-[calc(theme(screens.4xl)+48px)] px-4 lg:px-6 flex items-center justify-between">
+        <div className="lg:hidden flex gap-2 items-center">
+          <Menu
+            size={24}
+            className="cursor-pointer"
+            onClick={onToggleSidebar}
+          />
+          <HomeLogo className="w-24" />
+        </div>
         <div
           tabIndex={0}
-          className="inline-flex items-center whitespace-nowrap placeholder:text-text-secondary hover:bg-bg-secondary-transparent-hover border border-border-1 h-10 gap-1.5 text-sm px-3 pl-3 w-full cursor-text rounded-md bg-white pr-2 backdrop-blur-lg lg:min-w-[120px] lg:max-w-[360px] dark:bg-bg-primary-transparent transition-[background-color,box-shadow] duration-150 ease-out"
+          className="lg:inline-flex hidden items-center whitespace-nowrap placeholder:text-text-secondary hover:bg-bg-secondary-transparent-hover border border-border-1 h-10 gap-1.5 text-sm px-3 pl-3 w-full cursor-text rounded-md bg-white pr-2 backdrop-blur-lg lg:min-w-[120px] lg:max-w-[360px] dark:bg-bg-primary-transparent transition-[background-color,box-shadow] duration-150 ease-out"
           onFocus={() => setOpenSearch(true)}
         >
           <SearchIcon className="size-4 shrink-0 opacity-50" />
@@ -29,11 +41,6 @@ export default function Header() {
           />
         </div>
 
-        <div className="flex items-center shrink-0 gap-1">
-          {/* add right-side icons or profile menu */}
-        </div>
-
-        {/* 🪄 Command dialog appears when triggered */}
         <CommandDialog open={openSearch} onOpenChange={setOpenSearch}>
           <CommandInput placeholder="Search..." />
           <CommandList>

@@ -49,16 +49,115 @@
   --color-text-secondary: rgb(var(--color-text-secondary));
   --color-text-tertiary: rgb(var(--color-text-tertiary));
 
+  /* Background colors */
   --color-bg-app: rgb(var(--color-bg-app));
   --color-bg-primary: rgb(var(--color-bg-primary));
   --color-bg-secondary: rgb(var(--color-bg-secondary));
+  --color-bg-careers: rgb(var(--color-bg-careers));
   --color-bg-additional-1: rgb(var(--color-bg-additional-1));
   --color-bg-additional-2: rgb(var(--color-bg-additional-2));
   --color-bg-additional-3: rgb(var(--color-bg-additional-3));
+  --color-bg-contrast-1: rgb(var(--color-bg-contrast-1));
+  --color-bg-contrast-2: rgb(var(--color-bg-contrast-2));
 
+  /* Border colors */
   --color-border-1: rgb(var(--color-border-1));
   --color-border-2: rgb(var(--color-border-2));
   --color-border-3: rgb(var(--color-border-3));
+  --color-border-special-inset-1: rgb(var(--color-border-special-inset-1));
+
+  /* Transparent backgrounds */
+  --color-bg-primary-transparent: rgb(var(--color-bg-primary-transparent));
+  --color-bg-secondary-transparent: rgb(var(--color-bg-secondary-transparent));
+  --color-bg-additional-1-transparent: rgb(
+    var(--color-bg-additional-1-transparent)
+  );
+  --color-bg-additional-2-transparent: rgb(
+    var(--color-bg-additional-2-transparent)
+  );
+  --color-bg-additional-3-transparent: rgb(
+    var(--color-bg-additional-3-transparent)
+  );
+  --color-bg-contrast-1-transparent: rgb(
+    var(--color-bg-contrast-1-transparent)
+  );
+  --color-bg-contrast-2-transparent: rgb(
+    var(--color-bg-contrast-2-transparent)
+  );
+
+  /* Transparent borders */
+  --color-border-1-transparent: rgb(var(--color-border-1-transparent));
+  --color-border-2-transparent: rgb(var(--color-border-2-transparent));
+  --color-border-3-transparent: rgb(var(--color-border-3-transparent));
+
+  /* Overlay */
+  --color-overlay: rgb(var(--color-overlay));
+
+  /* Tier colors */
+  --color-legendary: rgb(var(--color-legendary));
+  --color-legendary-transparent: rgb(var(--color-legendary-transparent));
+  --color-legendary-transparent-1: rgb(var(--color-legendary-transparent-1));
+
+  --color-epic: rgb(var(--color-epic));
+  --color-epic-transparent: rgb(var(--color-epic-transparent));
+  --color-epic-transparent-1: rgb(var(--color-epic-transparent-1));
+
+  --color-rare: rgb(var(--color-rare));
+  --color-rare-transparent: rgb(var(--color-rare-transparent));
+  --color-rare-transparent-1: rgb(var(--color-rare-transparent-1));
+
+  --color-common: rgb(var(--color-common));
+  --color-common-transparent: rgb(var(--color-common-transparent));
+  --color-common-transparent-1: rgb(var(--color-common-transparent-1));
+
+  /* Accent hues */
+  --color-blue-6: rgb(var(--color-blue-6));
+  --color-blue-7: rgb(var(--color-blue-7));
+  --color-pink-1: rgb(var(--color-pink-1));
+  --color-pink-2: rgb(var(--color-pink-2));
+  --color-purple-1: rgb(var(--color-purple-1));
+  --color-purple-2: rgb(var(--color-purple-2));
+
+  /* Link colors */
+  --color-link: rgb(var(--color-link));
+  --color-link-hover: rgb(var(--color-link-hover));
+
+  /* Status colors */
+  --color-success-1: rgb(var(--color-success-1));
+  --color-success-1-transparent-1: rgb(var(--color-success-1-transparent-1));
+  --color-success-1-transparent-2: rgb(var(--color-success-1-transparent-2));
+
+  --color-success-2: rgb(var(--color-success-2));
+  --color-success-2-transparent-1: rgb(var(--color-success-2-transparent-1));
+  --color-success-2-transparent-2: rgb(var(--color-success-2-transparent-2));
+
+  --color-success-3: rgb(var(--color-success-3));
+  --color-success-3-transparent-1: rgb(var(--color-success-3-transparent-1));
+  --color-success-3-transparent-2: rgb(var(--color-success-3-transparent-2));
+
+  --color-warning: rgb(var(--color-warning));
+  --color-warning-transparent-1: rgb(var(--color-warning-transparent-1));
+  --color-warning-transparent-2: rgb(var(--color-warning-transparent-2));
+
+  --color-caution: rgb(var(--color-caution));
+  --color-caution-transparent-1: rgb(var(--color-caution-transparent-1));
+  --color-caution-transparent-2: rgb(var(--color-caution-transparent-2));
+
+  --color-error-1: rgb(var(--color-error-1));
+  --color-error-1-transparent-1: rgb(var(--color-error-1-transparent-1));
+  --color-error-1-transparent-2: rgb(var(--color-error-1-transparent-2));
+
+  --color-error-2: rgb(var(--color-error-2));
+  --color-error-2-transparent-1: rgb(var(--color-error-2-transparent-1));
+  --color-error-2-transparent-2: rgb(var(--color-error-2-transparent-2));
+
+  --color-error-3: rgb(var(--color-error-3));
+  --color-error-3-transparent-1: rgb(var(--color-error-3-transparent-1));
+  --color-error-3-transparent-2: rgb(var(--color-error-3-transparent-2));
+
+  /* Base color references */
+  --color-white: rgb(var(--color-white));
+  --color-black: rgb(var(--color-black));
 
   /* Radius and font */
   --radius: var(--radius);

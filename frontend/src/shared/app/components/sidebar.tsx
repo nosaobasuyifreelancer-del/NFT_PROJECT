@@ -12,9 +12,9 @@ const sideBarMenu = [
 
 export default function Sidebar() {
   return (
-    <div className="relative h-screen flex">
+    <div className="absolute h-screen flex">
       {/* Sidebar */}
-      <div className="group relative z-20 flex h-full flex-col border-r border-border-1 bg-bg-primary px-2 py-4 w-[52px] hover:w-[225px] transition-[width] duration-300 ease-out-quint overflow-hidden">
+      <div className="group  z-20 flex h-full flex-col border-r border-border-1 bg-bg-primary px-2 py-4 w-[52px] hover:w-[225px] transition-[width] duration-300 ease-out-quint overflow-hidden">
         {/* App Logo */}
         <div className="flex items-center gap-3 mb-6">
           {/* <span className="bg-blue-600 rounded-full h-8 w-8 shrink-0 items-center flex justify-center">
@@ -58,18 +58,3 @@ export default function Sidebar() {
     </div>
   );
 }
-
-// Sheet >
-//     <SheetTrigger><div >
-//     Open
-//         </div></SheetTrigger>
-//     <SheetContent>
-//       <SheetHeader>
-//         <SheetTitle>Are you absolutely sure?</SheetTitle>
-//         <SheetDescription>
-//           This action cannot be undone. This will permanently delete your account
-//           and remove your data from our servers.
-//         </SheetDescription>
-//       </SheetHeader>
-//     </SheetContent>
-//   </Sheet>

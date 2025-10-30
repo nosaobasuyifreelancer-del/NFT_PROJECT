@@ -4,11 +4,11 @@ import HomeContent1 from "./home-content-1";
 export default function HomePage() {
   return (
     <div className="w-full lg:flex-row flex flex-col">
-      <div className="flex flex-1 flex-col ">
+      <div className="flex flex-1 flex-col lg:max-w-[70%] max-w-full">
         <div className="flex justify-between relative z-10 lg:h-17 w-full items-center gap-4 overflow-x-auto overflow-y-hidden scrollbar-hidden">
           <Button>All</Button>
         </div>
-        <div className="flex flex-col gap-6 pb-6 flex-1">
+        <div className="flex flex-col gap-6 pb-6 flex-1 ">
           <HomeContent1 />
         </div>
       </div>

@@ -1,18 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@font-face {
-  font-family: "gtAmerica";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "gtAmerica Fallback";
-  src: local("Arial");
-}
+/* Import Coolvetica (from cdnfonts) */
+@import url("https://fonts.cdnfonts.com/css/coolvetica");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -205,9 +197,10 @@
   --z-top: 1010;
   --ios-inset-bottom: 0px;
   color: rgb(var(--color-text-primary));
-  --font-family-sans: "gtAmerica", "gtAmerica Fallback", ui-sans-serif,
-    system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans: "Montserrat", "Coolvetica", ui-sans-serif, system-ui,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-family-display: "Coolvetica", "Montserrat", sans-serif;
 }
 
 .dark {
@@ -217,7 +210,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  --primary: #bf00ff;
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -317,6 +310,10 @@
   --color-error-3-transparent-1: rgb(var(--color-error-3) / 8%);
   --color-error-3-transparent-2: rgb(var(--color-error-3) / 16%);
   color: rgb(var(--color-text-primary));
+  --font-family-sans: "Montserrat", "Coolvetica", ui-sans-serif, system-ui,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-family-display: "Coolvetica", "Montserrat", sans-serif;
 }
 
 @layer base {
@@ -324,6 +321,15 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-bg-app text-foreground font-sans;
+    font-family: var(--font-family-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-display);
   }
 }

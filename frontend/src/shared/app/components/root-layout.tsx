@@ -8,7 +8,7 @@ export default function RootLayout(props: { children: ReactNode }) {
       <Sidebar />
       <div className="flex flex-col relative min-h-0 w-full min-w-0">
         <Header />
-        <div className="mx-auto min-h-0 w-full min-w-0 max-w-[calc(theme(screens.4xl)+48px)] px-4 lg:px-6">
+        <div className="min-h-0 w-full min-w-0 max-w-[calc(theme(screens.4xl)+48px)] p-4 lg:p-6 flex flex-1">
           {props.children}
         </div>
       </div>

@@ -1,9 +1,33 @@
 import { Button } from "@/shared/components/ui/button";
 import HomeContent1 from "./home-content-1";
+import CollectionsCard from "./collections-card";
+
+const collectionItems = [
+  {
+    title: "DX Terminal",
+    image:
+      "https://i2.seadn.io/collection/the-warplets-farcaster/image_type_hero_desktop/9f2c62ddb025c2c41c378a641f34c8/d39f2c62ddb025c2c41c378a641f34c8.png?h=300&w=600",
+  },
+  {
+    title: "CCN",
+    image:
+      "https://i2.seadn.io/collection/the-warplets-farcaster/image_type_hero_desktop/9f2c62ddb025c2c41c378a641f34c8/d39f2c62ddb025c2c41c378a641f34c8.png?h=300&w=600",
+  },
+  {
+    title: "FFF",
+    image:
+      "https://i2.seadn.io/collection/the-warplets-farcaster/image_type_hero_desktop/9f2c62ddb025c2c41c378a641f34c8/d39f2c62ddb025c2c41c378a641f34c8.png?h=300&w=600",
+  },
+  {
+    title: "YYY",
+    image:
+      "https://i2.seadn.io/collection/the-warplets-farcaster/image_type_hero_desktop/9f2c62ddb025c2c41c378a641f34c8/d39f2c62ddb025c2c41c378a641f34c8.png?h=300&w=600",
+  },
+];
 
 export default function HomePage() {
   return (
-    <div className="w-full lg:flex-row flex flex-col">
+    <div className="w-full lg:flex-row flex flex-col gap-5">
       <div className="flex flex-1 flex-col lg:max-w-[70%] max-w-full">
         <div className="flex justify-between relative z-10 lg:h-17 w-full items-center gap-4 overflow-x-auto overflow-y-hidden scrollbar-hidden">
           <Button>All</Button>
@@ -27,7 +51,15 @@ export default function HomePage() {
                   FLOOR
                 </span>
               </div>
-              <div className="w-full flex-1 overflow-x-auto scrollbar-hidden"></div>
+              <div className="w-full flex-1 overflow-x-auto scrollbar-hidden">
+                {collectionItems.map((item) => (
+                  <CollectionsCard
+                    key={item.title}
+                    image={item.image}
+                    title={item.title}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

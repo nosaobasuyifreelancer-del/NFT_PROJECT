@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import RootLayout from "./root-layout";
 import HomeRoutes from "@/home";
 
@@ -6,8 +6,10 @@ function MainRoutes() {
   return (
     <RootLayout>
       <Routes>
+        <Route index element={<Navigate to="/home" replace />} />
+
+        {/* Main section */}
         <Route path="home/*" element={<HomeRoutes />} />
-        {/* <Route path="tasks/*" element={<TasksRoutes />} /> */}
       </Routes>
     </RootLayout>
   );

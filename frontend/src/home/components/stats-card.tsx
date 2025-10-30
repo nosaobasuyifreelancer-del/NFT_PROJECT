@@ -1,4 +1,4 @@
-export default function CollectionsCard({
+export default function StatsCard({
   title,
   image,
 }: {

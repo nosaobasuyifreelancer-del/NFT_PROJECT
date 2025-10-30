@@ -1,6 +1,10 @@
 import { Button } from "@/shared/components/ui/button";
 import HomeContent1 from "./home-content-1";
-import CollectionsCard from "./collections-card";
+import StatsCard from "./stats-card";
+import { ChevronsRight, TrendingUp } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/shared/lib/utils";
+import { CustomTooltip } from "@/shared/components/ui/tooltip";
 
 const collectionItems = [
   {
@@ -26,20 +30,63 @@ const collectionItems = [
 ];
 
 export default function HomePage() {
+  const [showStats, setShowStats] = useState(false);
   return (
-    <div className="w-full lg:flex-row flex flex-col gap-5">
-      <div className="flex flex-1 flex-col lg:max-w-[70%] max-w-full">
+    <div
+      className={cn(
+        "w-full lg:flex-row flex flex-col gap-5",
+        showStats ? "" : ""
+      )}
+    >
+      <div
+        className={cn(
+          "flex flex-1 flex-col ",
+          showStats ? "lg:max-w-[70%] max-w-full " : "max-w-full"
+        )}
+        id="main"
+      >
         <div className="flex justify-between relative z-10 lg:h-17 w-full items-center gap-4 overflow-x-auto overflow-y-hidden scrollbar-hidden">
           <Button>All</Button>
+          <div>
+            <CustomTooltip
+              trigger={
+                <Button
+                  onClick={() => setShowStats(true)}
+                  aria-label="Open Stats"
+                  hidden={!!showStats}
+                >
+                  <TrendingUp />
+                </Button>
+              }
+              content="Stats"
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-6 pb-6 flex-1 ">
           <HomeContent1 />
         </div>
       </div>
-      <div className="overflow-hidden transition-opacity duration-500 ease-out-quint sticky z-1 flex">
+      <div
+        className={`transition-all duration-500 ease-out-quint overflow-hidden sticky z-1 flex  ${
+          showStats ? " translate-x-0 max-w-full " : "hidden"
+        }`}
+        id="stats"
+      >
         <div className="flex flex-col scrollbar-hidden overflow-auto ">
           <div className="flex justify-between h-17 shrink-0 items-center gap-2 px-2">
             <Button>NFTs</Button>
+            <CustomTooltip
+              trigger={
+                <Button
+                  onClick={() => setShowStats(false)}
+                  aria-label="Close Stats"
+                  hidden={!showStats}
+                >
+                  <ChevronsRight />
+                </Button>
+              }
+              content="Collapse Stats"
+            />
           </div>
           <div className="h-full overflow-y-hidden">
             <div className="flex flex-col w-full min-w-0 h-full overflow-y-hidden">
@@ -53,7 +100,7 @@ export default function HomePage() {
               </div>
               <div className="w-full flex-1 overflow-x-auto scrollbar-hidden">
                 {collectionItems.map((item) => (
-                  <CollectionsCard
+                  <StatsCard
                     key={item.title}
                     image={item.image}
                     title={item.title}

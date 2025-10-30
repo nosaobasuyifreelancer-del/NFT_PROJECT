@@ -40,6 +40,12 @@ export default function Header({
             readOnly
           />
         </div>
+        <div className="flex lg:hidden cursor-pointer">
+          <SearchIcon
+            className="size-6 shrink-0 opacity-50"
+            onClick={() => setOpenSearch(true)}
+          />
+        </div>
 
         <CommandDialog open={openSearch} onOpenChange={setOpenSearch}>
           <CommandInput placeholder="Search..." />

@@ -2,6 +2,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/shared/components/ui/carousel";
 import { FeatureCollectionCard } from "../cards/feature-collection-card";
 
@@ -46,11 +48,11 @@ function TweenCarousel({
   group: { imgUrl: string; title: string; subTitle: string }[];
 }) {
   const [emblaRef] = useEmblaCarousel({
-    loop: false,
+    loop: true,
   });
 
   return (
-    <Carousel className="relative w-full">
+    <Carousel className="relative w-full group">
       <CarouselContent ref={emblaRef}>
         {group.map((card, cardIdx) => (
           <CarouselItem
@@ -66,6 +68,8 @@ function TweenCarousel({
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious className="z-300 opacity-0 group-hover:opacity-100  transition-opacity duration-300" />
+      <CarouselNext className="z-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </Carousel>
   );
 }

@@ -233,3 +233,154 @@ export const walletTypes = [
   { id: 5, name: "WalletConnect", icon: <Link /> },
   { id: 6, name: "Ledger", icon: <Usb /> },
 ];
+
+export const carouselSections = [
+  {
+    title: "Trending Collections",
+    subtitle: "Most popular this week",
+    items: [
+      [
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Cyberpunk City",
+          subTitle: "by NeonLabs",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Dreamscapes Vol. 2",
+          subTitle: "by Artify",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "CryptoBeasts",
+          subTitle: "by JungleDAO",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Neural Visions",
+          subTitle: "by AI Studio",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Lost Dimensions",
+          subTitle: "by HexaFrame",
+        },
+      ],
+    ],
+  },
+  {
+    title: "Editor's Picks",
+    subtitle: "Curated digital art for you",
+    items: [
+      [
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Abstract Illusions",
+          subTitle: "by Mira Nova",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Fragments of Tomorrow",
+          subTitle: "by Dusk Studio",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Liquid Galaxy",
+          subTitle: "by FluidForm",
+        },
+      ],
+    ],
+  },
+  {
+    title: "New Arrivals",
+    subtitle: "Fresh drops from emerging creators",
+    items: [
+      [
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Skyborne Tales",
+          subTitle: "by AeroWorks",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Neon Samurai",
+          subTitle: "by RoninNFT",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "The Aurora Path",
+          subTitle: "by LumaArt",
+        },
+      ],
+    ],
+  },
+  {
+    title: "Top 3D Artists",
+    subtitle: "Stunning 3D worlds & assets",
+    items: [
+      [
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Sculpted Reality",
+          subTitle: "by 3DForge",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Voxel Worlds",
+          subTitle: "by Bitspace",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Galactic Depths",
+          subTitle: "by CosmosX",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Render Dreams",
+          subTitle: "by Polymesh",
+        },
+      ],
+    ],
+  },
+  {
+    title: "Community Favorites",
+    subtitle: "Voted by our NFT community",
+    items: [
+      [
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Whispers of Code",
+          subTitle: "by DevArt",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+          title: "Electric Souls",
+          subTitle: "by PulseDAO",
+        },
+        {
+          imgUrl:
+            "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+          title: "Infinite Horizons",
+          subTitle: "by Scope Studio",
+        },
+      ],
+    ],
+  },
+];

@@ -54,7 +54,7 @@ export default function CollectionCarousel() {
                       backgroundPosition: "center",
                     }}
                   >
-                    <div className="absolute inset-0 bg-black/30" />
+                    <div className="absolute inset-0 bg-linear-to-b from-transparent to-bg-app " />
                     <div className="flex flex-col w-full grow p-3 md:p-5 z-500">
                       <span className="leading-normal font-medium truncate text-text-primary text-3xl md:text-heading-lg">
                         {slide.username}

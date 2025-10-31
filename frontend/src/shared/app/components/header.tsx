@@ -4,8 +4,8 @@ import HomeLogo from "@/shared/assets/logo.svg?react";
 import { Button } from "@/shared/components/ui/button";
 import { Separator } from "@/shared/components/ui/separator";
 import SearchModal from "@/shared/components/search-modal";
-import ConnectWallet from "@/home/components/connect-wallet-modal";
 import { Input } from "@/shared/components/ui/input";
+import ConnectWallet from "@/home/components/modals/connect-wallet-modal";
 
 export default function Header({
   onToggleSidebar,

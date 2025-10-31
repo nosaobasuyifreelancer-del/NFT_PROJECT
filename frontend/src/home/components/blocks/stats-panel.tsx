@@ -1,7 +1,7 @@
 import { Button } from "@/shared/components/ui/button";
 import { CustomTooltip } from "@/shared/components/ui/tooltip";
 import { ChevronsRight, LayoutPanelLeft } from "lucide-react";
-import StatsCard from "./stats-card";
+import StatsCard from "../cards/stats-card";
 import { cn } from "@/shared/lib/utils";
 
 export default function StatsPanel({

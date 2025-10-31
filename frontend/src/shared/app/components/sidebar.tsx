@@ -14,7 +14,7 @@ export default function Sidebar({
   return (
     <>
       <div className="hidden  group absolute lg:flex z-50 h-full flex-col border-r border-border-1 bg-bg-primary px-2 py-4 w-[52px] hover:w-[225px] transition-[width] duration-300 ease-out-quint overflow-hidden">
-        <div className="hidden items-center gap-3 mb-6 group-hover:flex transition-opacity duration-300 ease-out-quint ">
+        <div className="hidden items-center gap-3 mb-6 group-hover:flex transition-opacity duration-300 ease-out-quint border-b border-border-1 lg:border-b-0">
           <HomeLogo />
         </div>
 
@@ -62,12 +62,12 @@ export default function Sidebar({
       >
         <div
           className={cn(
-            "absolute group top-0 left-0 h-full w-full max-w-full bg-bg-primary border-r border-border-1 px-4 py-6 flex flex-col transition-transform duration-300 ease-out-quint",
+            "absolute group top-0 left-0 h-full w-full max-w-full bg-bg-primary border-r border-border-1  flex flex-col transition-transform duration-300 ease-out-quint",
             isOpen ? "translate-x-0" : "-translate-x-full"
           )}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between border-b border-border-1 py-8 px-6">
             <HomeLogo className="w-24" />
             <div
               className="h-10 w-10 rounded-full border border-border-1 items-center justify-center flex cursor-pointer"
@@ -77,7 +77,7 @@ export default function Sidebar({
             </div>
           </div>
 
-          <nav className="flex flex-col gap-3 text-sm text-muted-foreground">
+          <nav className="flex flex-col gap-3 text-sm text-muted-foreground px-4 py-6">
             {sideBarMenu.map((item) => (
               <Link
                 to={item.url}

@@ -3,9 +3,10 @@ import { TrendingUp } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
 import { CustomTooltip } from "@/shared/components/ui/tooltip";
-import StatsPanel from "./stats-panel";
-import CollectionCarousel from "./collection-carousel";
-import { collectionItems } from "@/shared/lib/data";
+import StatsPanel from "./blocks/stats-panel";
+import CollectionCarousel from "./blocks/collection-carousel";
+import { carouselSections, collectionItems } from "@/shared/lib/data";
+import CarouselSection from "./blocks/carousel-section";
 
 export default function HomePage() {
   const [showStats, setShowStats] = useState(false);
@@ -18,12 +19,12 @@ export default function HomePage() {
     >
       <div
         className={cn(
-          "flex flex-1 flex-col overflow-y-auto gap-5 min-h-0 min-w-0",
+          "flex flex-1 flex-col overflow-hidden gap-5 min-h-0 min-w-0",
           showStats ? "lg:max-w-[70%] max-w-full " : "max-w-full"
         )}
         id="main"
       >
-        <div className="flex justify-between relative w-full items-center gap-4  scrollbar-hidden min-h-0 h-17 shrink-0">
+        <div className="flex justify-between relative w-full items-center gap-4  scrollbar-hide min-h-0 h-17 shrink-0">
           <CustomTooltip trigger={<Button>All</Button>} content="All" />
           <div>
             <CustomTooltip
@@ -41,10 +42,22 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="flex gap-6 pb-6 min-h-0 shrink-0">
-          <CollectionCarousel />
+        <div className="flex min-h-0 flex-col overflow-y-auto overflow-x-hidden scrollbar-hide">
+          <div className="flex gap-6 pb-6 min-h-0 shrink-0">
+            <CollectionCarousel />
+          </div>
+          <StatsPanel collectionItems={collectionItems} isMobile />
+          <div className="flex flex-col gap-6">
+            {carouselSections.map((section, index) => (
+              <CarouselSection
+                key={index}
+                title={section.title}
+                subtitle={section.subtitle}
+                items={section.items}
+              />
+            ))}
+          </div>
         </div>
-        <StatsPanel collectionItems={collectionItems} isMobile />
       </div>
       <StatsPanel
         collectionItems={collectionItems}

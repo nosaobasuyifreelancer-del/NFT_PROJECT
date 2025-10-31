@@ -31,7 +31,6 @@ export default function CarouselSection({
         </span>
       </div>
 
-      {/* Each group gets its own Embla instance */}
       <div className="flex flex-col gap-10">
         {items.map((group, groupIdx) => (
           <TweenCarousel key={groupIdx} group={group} />
@@ -48,7 +47,6 @@ function TweenCarousel({
 }) {
   const [emblaRef] = useEmblaCarousel({
     loop: false,
-    dragFree: true,
   });
 
   return (

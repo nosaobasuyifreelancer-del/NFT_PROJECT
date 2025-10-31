@@ -1,16 +1,9 @@
 import { cn } from "@/shared/lib/utils";
-import { PanelLeft, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Link } from "react-router";
 import HomeLogo from "@/shared/assets/logo.svg?react";
-
-const sideBarMenu = [
-  {
-    title: "Home",
-    url: "/home",
-    icon: <PanelLeft />,
-  },
-];
-
+import Legend from "@/shared/assets/legend.svg?react";
+import { sideBarMenu } from "@/shared/lib/data";
 export default function Sidebar({
   isOpen,
   onClose,
@@ -21,8 +14,12 @@ export default function Sidebar({
   return (
     <>
       <div className="hidden  group absolute lg:flex z-50 h-full flex-col border-r border-border-1 bg-bg-primary px-2 py-4 w-[52px] hover:w-[225px] transition-[width] duration-300 ease-out-quint overflow-hidden">
-        <div className="flex items-center gap-3 mb-6">
+        <div className="hidden items-center gap-3 mb-6 group-hover:flex transition-opacity duration-300 ease-out-quint ">
           <HomeLogo />
+        </div>
+
+        <div className="flex items-center mb-6 opacity-100 group-hover:hidden transition-opacity duration-300 ease-out-quint">
+          <Legend className="w-full h-10 text-text-primary" />
         </div>
 
         <nav className="flex flex-col gap-3 text-sm text-muted-foreground">
@@ -37,12 +34,15 @@ export default function Sidebar({
                 to={item.url}
                 key={item.url}
                 className={cn(
-                  "cursor-pointer no-underline disabled:pointer-events-none disabled:opacity-40 border-border-2 border-0 flex w-full flex-nowrap items-center gap-2 rounded-md bg-transparent p-2 text-text-secondary transition-colors duration-200 ease-out-quint hover:bg-bg-additional-2 hover:text-text-primary h-9",
+                  "group relative cursor-pointer no-underline disabled:pointer-events-none disabled:opacity-40 border-border-2 border-0 flex w-full items-center gap-2 rounded-sm bg-transparent p-2 text-text-secondary transition-all duration-300 ease-out-quint hover:bg-bg-additional-2 hover:text-text-primary h-9",
                   urlIsActive ? "bg-bg-additional-2 text-text-white" : ""
                 )}
               >
-                <div className="text-text-primary">{item.icon}</div>
-                <span className="leading-normal text-md text-text-primary whitespace-nowrap font-inherit opacity-0 transition-opacity group-hover:opacity-100">
+                <div className="flex items-center justify-center shrink-0 transition-all duration-300 ease-out-quint text-text-primary size-5">
+                  {item.icon}
+                </div>
+
+                <span className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 ease-out-quint whitespace-nowrap text-text-primary">
                   {item.title}
                 </span>
               </Link>
@@ -86,7 +86,7 @@ export default function Sidebar({
                   "cursor-pointer no-underline disabled:pointer-events-none disabled:opacity-40 border-border-2 border-0 flex w-full flex-nowrap items-center gap-5 rounded-md bg-transparent p-2 text-text-secondary transition-colors duration-200 ease-out-quint hover:bg-bg-additional-1 hover:text-text-primary h-18 "
                 )}
               >
-                <div className="flex h-12 w-12 items-center justify-center border border-border-1 rounded-sm text-text-primary">
+                <div className="flex h-12 w-12 items-center justify-center border border-border-1 rounded-sm text-text-primary size-5">
                   {item.icon}
                 </div>
                 <span className="leading-normal text-md text-text-primary whitespace-nowrap font-inherit ">

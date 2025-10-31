@@ -9,7 +9,7 @@ export default function RootLayout(props: { children: ReactNode }) {
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <div className="flex flex-col relative min-h-0 w-full min-w-0 lg:ml-[52px] ml-0">
         <Header onToggleSidebar={() => setIsSidebarOpen(true)} />
-        <div className="min-h-0 w-full min-w-0  p-4 lg:p-6 flex flex-1">
+        <div className="min-h-0 w-full min-w-0  px-4 lg:px-6 pb-4 lg:pb-6 flex flex-1">
           {props.children}
         </div>
       </div>

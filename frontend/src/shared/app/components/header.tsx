@@ -1,58 +1,60 @@
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/shared/components/ui/command";
-import { CircleUser, Menu, SearchIcon } from "lucide-react";
+import { CircleUser, PanelLeft, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import HomeLogo from "@/shared/assets/logo.svg?react";
 import { Button } from "@/shared/components/ui/button";
 import { Separator } from "@/shared/components/ui/separator";
+import SearchModal from "@/shared/components/search-modal";
+import ConnectWallet from "@/home/components/connect-wallet-modal";
+import { Input } from "@/shared/components/ui/input";
 
 export default function Header({
   onToggleSidebar,
 }: {
   onToggleSidebar: () => void;
 }) {
-  const [openSearch, setOpenSearch] = useState(false);
+  const [openModal, setOpenModal] = useState<"search" | "wallet" | null>();
   return (
     <>
       <div className="sticky top-0 z-10 flex h-sm-top-nav py-3 lg:h-lg-top-nav transition-colors duration-200 ease-out-quint border-b border-border-1 bg-bg-primary">
         <div className="mx-auto w-full px-4 lg:px-6 flex items-center justify-between">
           <div className="lg:hidden flex gap-2 items-center h-10">
-            <Menu
+            <PanelLeft
               size={24}
               className="cursor-pointer"
               onClick={onToggleSidebar}
             />
-            <HomeLogo className="w-20" />
+            <HomeLogo className="w-20 -mb-1" />
           </div>
-          <div
-            tabIndex={0}
-            className="lg:inline-flex hidden items-center whitespace-nowrap placeholder:text-text-secondary hover:bg-bg-secondary-transparent-hover border border-border-1 h-10 gap-1.5 text-sm px-3 pl-3 w-full cursor-text rounded-md bg-white pr-2 backdrop-blur-lg lg:min-w-[120px] lg:max-w-[360px] dark:bg-bg-primary-transparent transition-[background-color,box-shadow] duration-150 ease-out"
-            onClick={() => setOpenSearch(true)}
-          >
-            <SearchIcon className="size-4 shrink-0 opacity-50" />
-            <input
-              type="text"
-              placeholder="Search "
-              className="md:text-sm w-full border-0 bg-transparent outline-hidden [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none pointer-events-none text-sm text-text-primary placeholder:text-text-primary"
-              readOnly
-            />
-          </div>
+
+          <Input
+            placeholder="Search"
+            variant="search"
+            onClick={() => setOpenModal("search")}
+            icon={<SearchIcon />}
+            withIcon="left"
+          />
 
           <div className="flex gap-5 items-center">
             <div className="flex lg:hidden cursor-pointer">
               <SearchIcon
                 className="size-6 shrink-0 opacity-50"
-                onClick={() => setOpenSearch(true)}
+                onClick={() => setOpenModal("search")}
               />
             </div>
             <div className="flex gap-3 items-center">
-              <Button>Connect Wallet</Button>
+              <Button
+                className="lg:hidden inline"
+                onClick={() => setOpenModal("wallet")}
+              >
+                Connect
+              </Button>
+              <Button
+                onClick={() => setOpenModal("wallet")}
+                variant="outline"
+                className="hidden lg:inline"
+              >
+                Connect Wallet
+              </Button>
               <Separator
                 orientation="vertical"
                 className="data-[orientation=vertical]:h-6 data-[orientation=vertical]:w-px  bg-border-1 hidden lg:flex"
@@ -61,7 +63,7 @@ export default function Header({
                 <Button
                   variant="outline"
                   className="
-              hidden lg:flex"
+              hidden lg:flex [&_svg:not([class*='size-'])]:size-5 "
                 >
                   <CircleUser />
                 </Button>
@@ -70,15 +72,12 @@ export default function Header({
           </div>
         </div>
       </div>
-      <CommandDialog open={openSearch} onOpenChange={setOpenSearch}>
-        <CommandInput placeholder="Search Legend" />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem>Home</CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
+      {openModal === "search" && (
+        <SearchModal onClose={() => setOpenModal(null)} />
+      )}
+      {openModal === "wallet" && (
+        <ConnectWallet onClose={() => setOpenModal(null)} />
+      )}
     </>
   );
 }

@@ -1,31 +1,45 @@
+import { cn } from "@/shared/lib/utils";
+
 export default function StatsCard({
   title,
   image,
+  ethValue,
+  percentChange,
 }: {
   title: string;
   image: string;
+  ethValue: number;
+  percentChange: number;
 }) {
+  const isPositive = percentChange >= 0;
+
   return (
-    <div className="inline-flex relative w-max min-w-full items-center rounded group cursor-pointer hover:bg-primary h-[60px] text-sm gap-2">
-      <div className="flex items-center shrink-0 first:pl-2 last:pr-2 justify-start overflow-visible w-[100px] grow">
-        <div className="border-border-2 border-0 p-0 flex items-center gap-3 w-auto max-w-full">
+    <div className="inline-flex relative w-max min-w-full items-center rounded group cursor-pointer hover:bg-primary/10 h-[60px] text-sm gap-2 px-2 transition-colors">
+      <div className="flex items-center shrink-0 justify-start overflow-visible w-[100px] grow">
+        <div className="flex items-center gap-3 w-auto max-w-full">
           <img
-            className="relative inline-block shrink-0 h-10 w-10 rounded-sm"
+            className="h-10 w-10 rounded-sm object-cover"
             src={image}
+            alt={title}
           />
-          <span className="flex flex-col justify-center order-2 min-w-0 overflow-hidden flex-auto items-start self-stretch">
-            {title}
-          </span>
+          <span className="font-medium truncate">{title}</span>
         </div>
       </div>
-      <div className="flex items-center shrink-0 grow-0 overflow-hidden first:pl-2 last:pr-2 w-[125px] justify-end whitespace-nowrap">
-        <div className="flex flex-col min-w-0 items-end font-mono text-xs gap-2">
-          <span className="max-w-full truncate break-all inline-flex animate-positive-change-bg gap-2">
-            {"<0.01"}
-            <span className="text-text-secondary font-mono">ETH</span>
+
+      <div className="flex items-center shrink-0 grow-0 overflow-hidden w-[125px] justify-end whitespace-nowrap">
+        <div className="flex flex-col min-w-0 items-end font-mono text-xs gap-1">
+          <span className="max-w-full truncate inline-flex items-center gap-1">
+            {ethValue.toFixed(2)}
+            <span className="text-text-secondary">ETH</span>
           </span>
-          <span className="inline-flex animate-change-animation-bg animate-negative-change-bg text-success-1">
-            +0.06%
+          <span
+            className={cn(
+              "inline-flex transition-colors",
+              isPositive ? "text-green-400" : "text-red-400"
+            )}
+          >
+            {isPositive ? "+" : ""}
+            {percentChange.toFixed(2)}%
           </span>
         </div>
       </div>

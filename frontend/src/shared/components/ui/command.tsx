@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { SearchIcon } from "lucide-react";
+// import { SearchIcon } from "lucide-react";
 
 import {
   Dialog,
@@ -49,10 +49,11 @@ function CommandDialog({
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
       <DialogContent
-        className={cn("overflow-hidden p-0 h-[50dvh]", className)}
+        className={cn("overflow-hidden p-0", className)}
         showCloseButton={showCloseButton}
+        variant="lg"
       >
-        <Command className="**:[[cmdk-group-heading]]:text-muted-foreground **:data-[slot=command-input-wrapper]:h-12 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 **:[[cmdk-input]]:h-12 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
+        <Command className="**:[[cmdk-group-heading]]:text-white **:data-[slot=command-input-wrapper]:h-20 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-normal **:[[cmdk-group]]:px-2 [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 **:[[cmdk-input]]:h-20 **:[[cmdk-item]]:px-2 **:[[cmdk-input]]:text-2xl **:[[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
           {children}
         </Command>
       </DialogContent>
@@ -67,13 +68,13 @@ function CommandInput({
   return (
     <div
       data-slot="command-input-wrapper"
-      className="inline-flex items-center whitespace-nowrap placeholder:text-text-secondary hover:bg-bg-secondary-transparent-hover border border-border-1-transparent h-10 gap-1.5 text-sm px-3 pl-3 w-full cursor-text rounded-md bg-white pr-2 backdrop-blur-lg lg:min-w-[120px] lg:max-w-[360px] dark:bg-bg-primary-transparent transition-[background-color,box-shadow] duration-150 ease-out"
+      className="inline-flex items-center whitespace-nowrap placeholder:text-text-secondary hover:bg-bg-secondary-transparent-hover border-b border-border-1 h-20 gap-1.5 text-sm px-3 pl-3 w-full cursor-text pr-2 backdrop-blur-lg dark:bg-bg-app bg-bg-app transition-[background-color,box-shadow] duration-150 ease-out"
     >
-      <SearchIcon className="size-4 shrink-0 opacity-50" />
+      {/* <SearchIcon className="size-4 shrink-0 opacity-50" /> */}
       <CommandPrimitive.Input
         data-slot="command-input"
         className={cn(
-          "md:text-sm w-full border-0 bg-transparent outline-hidden [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none pointer-events-none text-sm text-text-primary placeholder:text-text-primary",
+          "md:text-sm w-full border-0 bg-transparent outline-hidden [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none pointer-events-none text-sm text-text-primary placeholder:text-muted-foreground",
           className
         )}
         {...props}

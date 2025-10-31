@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { HomeIcon, X } from "lucide-react";
+import { PanelLeft, X } from "lucide-react";
 import { Link } from "react-router";
 import HomeLogo from "@/shared/assets/logo.svg?react";
 
@@ -7,6 +7,7 @@ const sideBarMenu = [
   {
     title: "Home",
     url: "/home",
+    icon: <PanelLeft />,
   },
 ];
 
@@ -40,7 +41,7 @@ export default function Sidebar({
                   urlIsActive ? "bg-bg-additional-2 text-text-white" : ""
                 )}
               >
-                <HomeIcon className="h-5 w-5 shrink-0 text-current" />
+                <div className="text-text-primary">{item.icon}</div>
                 <span className="leading-normal text-md text-text-primary whitespace-nowrap font-inherit opacity-0 transition-opacity group-hover:opacity-100">
                   {item.title}
                 </span>
@@ -68,32 +69,31 @@ export default function Sidebar({
         >
           <div className="flex items-center justify-between mb-8">
             <HomeLogo className="w-24" />
-            <X className="cursor-pointer" onClick={onClose} />
+            <div
+              className="h-10 w-10 rounded-full border border-border-1 items-center justify-center flex cursor-pointer"
+              onClick={onClose}
+            >
+              <X />
+            </div>
           </div>
 
           <nav className="flex flex-col gap-3 text-sm text-muted-foreground">
-            {sideBarMenu.map((item) => {
-              const pathToMatch = item?.url
-                ? item?.url.split("/")?.at(-1)
-                : undefined;
-              const urlIsActive =
-                !!pathToMatch && location.pathname.includes(pathToMatch);
-              return (
-                <Link
-                  to={item.url}
-                  key={item.url}
-                  className={cn(
-                    "cursor-pointer no-underline disabled:pointer-events-none disabled:opacity-40 border-border-2 border-0 flex w-full flex-nowrap items-center gap-2 rounded-md bg-transparent p-2 text-text-secondary transition-colors duration-200 ease-out-quint hover:bg-bg-additional-2 hover:text-text-primary h-9",
-                    urlIsActive ? "bg-bg-additional-2 text-text-white" : ""
-                  )}
-                >
-                  <HomeIcon className="h-5 w-5 shrink-0 text-current" />
-                  <span className="leading-normal text-md text-text-primary whitespace-nowrap font-inherit opacity-0 transition-opacity group-hover:opacity-100">
-                    {item.title}
-                  </span>
-                </Link>
-              );
-            })}
+            {sideBarMenu.map((item) => (
+              <Link
+                to={item.url}
+                key={item.url}
+                className={cn(
+                  "cursor-pointer no-underline disabled:pointer-events-none disabled:opacity-40 border-border-2 border-0 flex w-full flex-nowrap items-center gap-5 rounded-md bg-transparent p-2 text-text-secondary transition-colors duration-200 ease-out-quint hover:bg-bg-additional-1 hover:text-text-primary h-18 "
+                )}
+              >
+                <div className="flex h-12 w-12 items-center justify-center border border-border-1 rounded-sm text-text-primary">
+                  {item.icon}
+                </div>
+                <span className="leading-normal text-md text-text-primary whitespace-nowrap font-inherit ">
+                  {item.title}
+                </span>
+              </Link>
+            ))}
           </nav>
         </div>
       </div>

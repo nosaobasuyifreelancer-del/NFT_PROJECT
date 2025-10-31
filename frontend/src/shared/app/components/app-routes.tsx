@@ -8,7 +8,6 @@ function MainRoutes() {
       <Routes>
         <Route index element={<Navigate to="/home" replace />} />
 
-        {/* Main section */}
         <Route path="home/*" element={<HomeRoutes />} />
       </Routes>
     </RootLayout>

@@ -23,11 +23,11 @@ export default function StatsPanel({
   return (
     <div
       className={cn(
-        "transition-all duration-300 ease-out-quint overflow-hidden z-900  min-h-0 shrink-0",
+        "transition-all duration-300 ease-out-quint overflow-hidden z-900  min-h-0 shrink-0 ",
         showStats
           ? " translate-x-0 flex max-w-[365px] h-full "
           : "hidden lg:flex lg:w-0",
-        isMobile ? "flex lg:hidden max-h-[353px]" : "hidden lg:flex"
+        isMobile ? "flex lg:hidden max-h-[353px] p-2" : "hidden lg:flex"
       )}
       id="stats"
     >

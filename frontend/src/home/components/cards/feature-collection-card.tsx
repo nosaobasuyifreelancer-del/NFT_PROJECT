@@ -33,7 +33,10 @@ export const FeatureCollectionCard: React.FC<featureColProps> = ({
 
   const titleResult = truncateText(title, maxTitleLength);
   return (
-    <Card className="rounded-sm border-0 min-h-0 min-w-0" onClick={onClick}>
+    <Card
+      className="rounded-sm border-0 min-h-0 min-w-0 hover:-translate-y-0.5 hover:scale-[1.01] active:scale-[1.005] shadow-xs hover:shadow-xs ext-text-primary duration-200 ease-out-circ perspective-[0] translate-z-0 backface-hidden shrink-0"
+      onClick={onClick}
+    >
       <CardContent
         className="relative flex items-end max-h-[200px] md:h-[200px] h-[188px] rounded-sm min-w-0 min-h-0 p-0"
         style={{
@@ -45,6 +48,7 @@ export const FeatureCollectionCard: React.FC<featureColProps> = ({
         <div className="absolute inset-0 bg-linear-to-b from-transparent to-bg-app" />
         <div className="flex flex-col justify-end h-full z-500 min-w-0 flex-1 p-2">
           <CustomTooltip
+            align="start"
             trigger={
               <div className="border-border-2 border-0 p-0 flex w-full items-center gap-3">
                 <span className="leading-normal font-medium text-text-primary text-sm">

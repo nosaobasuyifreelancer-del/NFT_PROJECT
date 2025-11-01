@@ -30,7 +30,7 @@ export default function CarouselSection({
   variant = "default",
 }: CarouselSectionProps) {
   return (
-    <div className="flex flex-col gap-4 lg:p-6 min-h-0 min-w-0 shrink-0">
+    <div className="flex flex-col gap-4 lg:p-6 p-2 min-h-0 min-w-0 shrink-0">
       {/* Header */}
       <div className="flex flex-col lg:gap-1">
         <span className="font-medium leading-tight text-xl">{title}</span>
@@ -88,7 +88,7 @@ function TweenCarousel({
             className={`transition-opacity duration-300 ${
               variant === "trending"
                 ? "md:basis-1/3 lg:basis-1/4"
-                : "md:basis-1/3 lg:basis-1/3"
+                : "md:basis-1/3 lg:basis-1/4"
             }`}
           >
             {variant === "trending" ? (

@@ -50,11 +50,9 @@ export const FeatureCollectionCard: React.FC<featureColProps> = ({
           <CustomTooltip
             align="start"
             trigger={
-              <div className="border-border-2 border-0 p-0 flex w-full items-center gap-3">
-                <span className="leading-normal font-medium text-text-primary text-sm">
-                  {titleResult.truncate}
-                </span>
-              </div>
+              <span className="leading-normal font-medium text-text-primary text-sm cursor-pointer">
+                {titleResult.truncate}
+              </span>
             }
             content={title}
           />

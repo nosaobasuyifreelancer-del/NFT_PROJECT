@@ -36,31 +36,31 @@ export default function HomePage() {
         )}
         id="main"
       >
-        <div className="flex justify-between relative w-full items-center gap-4 scrollbar-hide min-h-0 h-17 shrink-0 lg:px-6">
-          <CustomTooltip trigger={<Button>All</Button>} content="All" />
+        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide shrink-o overflow-y-auto overflow-x-hidden gap-8">
+          <div className="flex justify-between relative w-full items-center gap-4 scrollbar-hide min-h-0 h-17 shrink-0 lg:px-6">
+            <CustomTooltip trigger={<Button>All</Button>} content="All" />
 
-          <div>
-            <CustomTooltip
-              open={showStats ? false : undefined}
-              trigger={
-                <Button
-                  onClick={() => setShowStats(true)}
-                  aria-label="Open Stats"
-                  className={cn(
-                    "lg:flex hidden [&_svg:not([class*='size-'])]:size-5  duration-250 delay-300 ease-linear",
-                    !showStats
-                      ? "opacity-100 transition-opacity"
-                      : "opacity-0 transition-none pointer-events-none"
-                  )}
-                >
-                  <TrendingUp />
-                </Button>
-              }
-              content="Stats"
-            />
+            <div>
+              <CustomTooltip
+                open={showStats ? false : undefined}
+                trigger={
+                  <Button
+                    onClick={() => setShowStats(true)}
+                    aria-label="Open Stats"
+                    className={cn(
+                      "lg:flex hidden [&_svg:not([class*='size-'])]:size-5  duration-250 delay-300 ease-linear",
+                      !showStats
+                        ? "opacity-100 transition-opacity"
+                        : "opacity-0 transition-none pointer-events-none"
+                    )}
+                  >
+                    <TrendingUp />
+                  </Button>
+                }
+                content="Stats"
+              />
+            </div>
           </div>
-        </div>
-        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide shrink-o overflow-y-auto overflow-x-hidden gap-5">
           <div className="flex flex-col gap-6 pb-6 min-h-0 shrink-0 lg:px-6 lg:pr-3">
             <CollectionCarousel showStats={showStats} />
           </div>

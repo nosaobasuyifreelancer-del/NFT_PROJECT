@@ -36,7 +36,7 @@ export default function CarouselSection({
   return (
     <div
       className={cn(
-        "flex flex-col gap-4 lg:p-6 min-h-0 max-w-full shrink-0 mask-[linear-gradient(to_right,transparent,black_--spacing(4),black_calc(100%-(--spacing(4))),transparent)] lg:mask-[linear-gradient(to_right,transparent,black_--spacing(4),black_calc(100%-(--spacing(6))),transparent)] mask-size-[calc(100%+(--spacing(4)))] lg:mask-size-[calc(100%+(--spacing(6)))] mask-[calc(--spacing(4)*-1)] lg:mask-[calc(--spacing(6)*-1)] transition-[mask-size,mask-position] duration-500 "
+        "flex flex-col gap-4 lg:p-6 min-h-0 max-w-full shrink-0 [mask-image:linear-gradient(to_right,transparent,black_theme(spacing.4),black_calc(100%_-_theme(spacing.4)),transparent)] lg:[mask-image:linear-gradient(to_right,transparent,black_theme(spacing.4),black_calc(100%_-_theme(spacing.6)),transparent)] [mask-size:calc(100%+theme(spacing.4))] lg:[mask-size:calc(100%+theme(spacing.6))] [mask-position:calc(theme(spacing.4)*-1)] lg:[mask-position:calc(theme(spacing.6)*-1)] transition-[mask-size,mask-position] duration-500 "
         // statsPanelOpen ? "lg:pr-6" : "lg:pr-0"
       )}
     >
@@ -115,15 +115,12 @@ function TweenCarousel({
         {groupedItems.map((pair, idx) => (
           <CarouselItem
             key={idx}
-            className={`transition-opacity duration-300 ${
-              variant === "trending"
-                ? "md:basis-1/3 lg:basis-[300px]"
-                : "md:basis-1/3 lg:basis-[300px]"
-            } ${
+            className={cn(
+              "transition-opacity duration-300 basis-[80%] md:basis-[38%] lg:basis-[300px]",
               current < idx + (statsPanelOpen ? -1 : -2)
                 ? "opacity-[0.25]"
                 : "opacity-[100]"
-            }`}
+            )}
           >
             {variant === "trending" ? (
               <div className="flex flex-col gap-3">

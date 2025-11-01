@@ -10,9 +10,7 @@ export default function FAQSection() {
   return (
     <div className="flex flex-col gap-4 lg:p-6 min-h-0 min-w-0 shrink-0">
       <div className="flex flex-col lg:gap-1">
-        <span className="font-medium leading-tight text-xl">
-          Frequently Asked Questions
-        </span>
+        <span className="font-medium leading-tight text-xl">FAQs</span>
         <span className="leading-normal text-sm text-text-secondary">
           Everything you need to know about our NFT collections and platform.
         </span>

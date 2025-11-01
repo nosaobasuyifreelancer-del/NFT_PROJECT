@@ -50,7 +50,7 @@ function Input({
           withIcon === "left"
             ? "pl-10 pr-3"
             : withIcon === "right"
-            ? "pl-3 pr-10"
+            ? "pl-3 pr-17"
             : "px-3",
           className
         )}

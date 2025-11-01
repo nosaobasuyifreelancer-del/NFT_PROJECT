@@ -65,16 +65,31 @@ export const FeatureCollectionCard: React.FC<featureColProps> = ({
             </span>
             <span className="leading-tight font-mono uppercase text-sm font-medium text-text-secondary">
               <div className="items-center inline-flex gap-1 truncate cursor-pointer">
-                <div className="max-w-full truncate break-all flex items-center">
-                  <span className="font-mono text-text-primary">0.0006</span>
+                <div className="max-w-full truncate break-all flex items-center gap-1">
+                  <CustomTooltip
+                    align="center"
+                    trigger={
+                      <span className="font-mono text-text-primary">
+                        0.0006
+                      </span>
+                    }
+                    content={"$0.0006"}
+                  />
+
                   <span className="text-text-secondary font-mono">ETH</span>
                 </div>
               </div>
             </span>
             <span className="leading-normal text-sm pl-2">
-              <span className="font-mono text-success-1 cursor-pointer">
-                +69.1%
-              </span>
+              <CustomTooltip
+                align="center"
+                trigger={
+                  <span className="font-mono text-success-1 cursor-pointer">
+                    +69.1%
+                  </span>
+                }
+                content={"1 day price change"}
+              />
             </span>
           </div>
         </div>

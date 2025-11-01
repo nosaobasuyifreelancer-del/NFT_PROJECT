@@ -60,7 +60,7 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide shrink-o overflow-y-auto overflow-x-hidden gap-5">
+        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide shrink-o overflow-y-auto overflow-x-hidden gap-8">
           <div className="flex flex-col gap-6 pb-6 min-h-0 shrink-0 lg:px-6 lg:pr-3">
             <CollectionCarousel showStats={showStats} />
           </div>

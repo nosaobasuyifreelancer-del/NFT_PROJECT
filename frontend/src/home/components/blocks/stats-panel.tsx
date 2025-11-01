@@ -23,7 +23,7 @@ export default function StatsPanel({
   return (
     <div
       className={cn(
-        "transition-[flex-basis] duration-300 ease-out-quint overflow-hidden z-900  min-h-0 shrink-0",
+        "transition-[flex-basis] duration-300 ease-out-quint overflow-hidden z-900  min-h-0 shrink-0 scrollbar-hide",
         statsPanelOpen
           ? " translate-x-0 basis-[365px] h-full lg:pr-4"
           : "hidden lg:flex lg:basis-0",
@@ -69,7 +69,7 @@ export default function StatsPanel({
                 FLOOR
               </span>
             </div>
-            <div className="w-full flex-1 overflow-x-auto scrollbar-hidden">
+            <div className="w-full flex-1 overflow-x-auto scrollbar-hide">
               {collectionItems.map((item) => (
                 <StatsCard
                   key={item.title}

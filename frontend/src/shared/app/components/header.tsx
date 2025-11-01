@@ -19,7 +19,7 @@ export default function Header({
         <div className="lg:hidden flex gap-2 items-center h-10">
           <PanelLeft
             size={24}
-            className="cursor-pointer"
+            className="cursor-pointer shrink-0 opacity-50"
             onClick={onToggleSidebar}
           />
           <HomeLogo className="w-20 -mb-1" />

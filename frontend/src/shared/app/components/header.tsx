@@ -14,60 +14,59 @@ export default function Header({
 }) {
   const [openModal, setOpenModal] = useState<"search" | "wallet" | null>();
   return (
-    <>
-      <div className="sticky top-0 z-10 flex h-sm-top-nav py-3 lg:h-lg-top-nav transition-colors duration-200 ease-out-quint border-b border-border-1 bg-bg-primary">
-        <div className="mx-auto w-full px-4 lg:px-6 flex items-center justify-between">
-          <div className="lg:hidden flex gap-2 items-center h-10">
-            <PanelLeft
-              size={24}
-              className="cursor-pointer"
-              onClick={onToggleSidebar}
-            />
-            <HomeLogo className="w-20 -mb-1" />
-          </div>
-
-          <Input
-            placeholder="Search"
-            variant="search"
-            onClick={() => setOpenModal("search")}
-            icon={<SearchIcon />}
-            withIcon="left"
+    <div className=" header sticky top-0 z-999 shrink-0 flex h-[68px] py-3  transition-colors duration-200 ease-out-quint border-b border-border-1 bg-bg-primary">
+      <div className="w-full px-4 lg:px-6 flex items-center justify-between">
+        <div className="lg:hidden flex gap-2 items-center h-10">
+          <PanelLeft
+            size={24}
+            className="cursor-pointer"
+            onClick={onToggleSidebar}
           />
+          <HomeLogo className="w-20 -mb-1" />
+        </div>
 
-          <div className="flex gap-5 items-center">
-            <div className="flex lg:hidden cursor-pointer">
-              <SearchIcon
-                className="size-6 shrink-0 opacity-50"
-                onClick={() => setOpenModal("search")}
-              />
-            </div>
-            <div className="flex gap-3 items-center">
+        <Input
+          placeholder="Search"
+          variant="search"
+          onClick={() => setOpenModal("search")}
+          icon={<SearchIcon />}
+          withIcon="left"
+          className="lg:inline hidden"
+        />
+
+        <div className="flex gap-5 items-center">
+          <div className="flex lg:hidden cursor-pointer">
+            <SearchIcon
+              className="size-6 shrink-0 opacity-50"
+              onClick={() => setOpenModal("search")}
+            />
+          </div>
+          <div className="flex gap-3 items-center">
+            <Button
+              className="lg:hidden inline"
+              onClick={() => setOpenModal("wallet")}
+            >
+              Connect
+            </Button>
+            <Button
+              onClick={() => setOpenModal("wallet")}
+              variant="outline"
+              className="hidden lg:inline"
+            >
+              Connect Wallet
+            </Button>
+            <Separator
+              orientation="vertical"
+              className="data-[orientation=vertical]:h-6 data-[orientation=vertical]:w-px  bg-border-1 hidden lg:flex"
+            />
+            <div>
               <Button
-                className="lg:hidden inline"
-                onClick={() => setOpenModal("wallet")}
-              >
-                Connect
-              </Button>
-              <Button
-                onClick={() => setOpenModal("wallet")}
                 variant="outline"
-                className="hidden lg:inline"
-              >
-                Connect Wallet
-              </Button>
-              <Separator
-                orientation="vertical"
-                className="data-[orientation=vertical]:h-6 data-[orientation=vertical]:w-px  bg-border-1 hidden lg:flex"
-              />
-              <div>
-                <Button
-                  variant="outline"
-                  className="
+                className="
               hidden lg:flex [&_svg:not([class*='size-'])]:size-5 "
-                >
-                  <CircleUser />
-                </Button>
-              </div>
+              >
+                <CircleUser />
+              </Button>
             </div>
           </div>
         </div>
@@ -78,6 +77,6 @@ export default function Header({
       {openModal === "wallet" && (
         <ConnectWallet onClose={() => setOpenModal(null)} />
       )}
-    </>
+    </div>
   );
 }

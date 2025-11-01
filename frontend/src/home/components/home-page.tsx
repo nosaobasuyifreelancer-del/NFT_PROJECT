@@ -7,24 +7,26 @@ import StatsPanel from "./blocks/stats-panel";
 import CollectionCarousel from "./blocks/collection-carousel";
 import { carouselSections, collectionItems } from "@/shared/lib/data";
 import CarouselSection from "./blocks/carousel-section";
+import FAQSection from "./blocks/faq-section";
+import HighestWeeklySales from "./blocks/highest-weekly-sales";
 
 export default function HomePage() {
   const [showStats, setShowStats] = useState(false);
   return (
     <div
       className={cn(
-        "w-full lg:flex-row flex flex-col min-h-0 overflow-hidden min-w-0",
-        showStats ? "gap-5" : ""
+        "w-full lg:flex-row flex flex-col min-h-0 overflow-hidden min-w-0 scrollbar-hide",
+        showStats ? "gap-0" : ""
       )}
     >
       <div
         className={cn(
-          "flex flex-1 flex-col overflow-hidden gap-5 min-h-0 min-w-0",
-          showStats ? "lg:max-w-[70%] max-w-full " : "max-w-full"
+          "flex flex-1 flex-col  gap-5 min-h-0 min-w-0 overflow-y-auto scrollbar-hide",
+          showStats ? "lg:max-w-full max-w-full " : "max-w-full"
         )}
         id="main"
       >
-        <div className="flex justify-between relative w-full items-center gap-4  scrollbar-hide min-h-0 h-17 shrink-0">
+        <div className="flex justify-between relative w-full items-center gap-4  scrollbar-hide min-h-0 h-17 shrink-0 ">
           <CustomTooltip trigger={<Button>All</Button>} content="All" />
           <div>
             <CustomTooltip
@@ -42,12 +44,18 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="flex min-h-0 flex-col overflow-y-auto overflow-x-hidden scrollbar-hide">
-          <div className="flex gap-6 pb-6 min-h-0 shrink-0">
+        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide overflow-x-hidden">
+          <div
+            className={cn(
+              "flex gap-6 pb-6 min-h-0 shrink-0",
+              showStats ? "mr-[365px]" : ""
+            )}
+          >
             <CollectionCarousel />
           </div>
-          <StatsPanel collectionItems={collectionItems} isMobile />
-          <div className="flex flex-col gap-6">
+
+          <div className="flex flex-col gap-6 min-w-0 min-h-0">
+            <StatsPanel collectionItems={collectionItems} isMobile />
             {carouselSections.map((section, index) => (
               <CarouselSection
                 key={index}
@@ -56,6 +64,12 @@ export default function HomePage() {
                 items={section.items}
               />
             ))}
+            <div
+              className={cn("min-h-0 shrink-0 ", showStats ? "mr-[365px]" : "")}
+            >
+              <HighestWeeklySales />
+              <FAQSection />
+            </div>
           </div>
         </div>
       </div>

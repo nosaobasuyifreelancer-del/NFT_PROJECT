@@ -12,7 +12,7 @@ export default function SearchModal({ onClose }: { onClose: () => void }) {
       {/* <CommandInput placeholder="Search Legend" /> */}
       <DialogContent
         variant="lg"
-        className="w-full p-0 gap-0 overflow-hidden"
+        className="w-full p-0 gap-0 overflow-hidden z-999"
         // showCloseButton={false}
       >
         <Input

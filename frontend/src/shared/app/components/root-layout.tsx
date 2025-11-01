@@ -5,11 +5,11 @@ import Header from "./header";
 export default function RootLayout(props: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
-    <div className="flex h-dvh w-dvw relative">
+    <div className="flex h-screen w-screen relative">
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-      <div className="flex flex-col relative min-h-0 w-full min-w-0 lg:ml-[52px] ml-0">
+      <div className="flex flex-col relative min-h-0 w-full min-w-0 lg:ml-[52px] ml-0 overflow-x-hidden">
         <Header onToggleSidebar={() => setIsSidebarOpen(true)} />
-        <div className="min-h-0 w-full min-w-0  px-4 lg:px-6 pb-4 lg:pb-6 flex flex-1">
+        <div className="mx-auto min-h-0 w-full min-w-0 px-4 lg:px-6">
           {props.children}
         </div>
       </div>

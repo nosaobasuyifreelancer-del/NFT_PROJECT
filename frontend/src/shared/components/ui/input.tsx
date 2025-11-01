@@ -41,7 +41,7 @@ function Input({
         type={type}
         data-slot="input"
         className={cn(
-          "lg:inline-flex hidden items-center whitespace-nowrap hover:bg-bg-secondary-transparent-hover border border-border-1 gap-1.5 px-3 pl-3 w-full rounded-md  pr-2 backdrop-blur-lg dark:bg-bg-primary-transparent transition-[background-color,box-shadow] duration-150 ease-out outline-hidden text-text-primary placeholder:text-text-primary ",
+          "inline-flex  items-center whitespace-nowrap hover:bg-bg-secondary-transparent-hover border border-border-1 gap-1.5 px-3 pl-3 w-full rounded-md  pr-2 backdrop-blur-lg dark:bg-bg-primary-transparent transition-[background-color,box-shadow] duration-150 ease-out outline-hidden text-text-primary placeholder:text-text-primary ",
           "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
           sizeClass,
           variant === "search" && inputSize == "sm"

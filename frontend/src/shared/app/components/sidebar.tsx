@@ -13,7 +13,7 @@ export default function Sidebar({
 }) {
   return (
     <>
-      <div className="hidden  group absolute lg:flex z-50 h-full flex-col border-r border-border-1 bg-bg-primary px-2 py-4 w-[52px] hover:w-[225px] transition-[width] duration-300 ease-out-quint overflow-hidden">
+      <div className="hidden fixed  group lg:flex z-9999 h-screen flex-col border-r border-border-1 bg-bg-primary px-2 py-4 w-[52px] hover:w-[225px] transition-[width] duration-300 ease-out-quint overflow-hidden">
         <div className="hidden items-center gap-3 mb-6 group-hover:flex transition-opacity duration-300 ease-out-quint border-b border-border-1 lg:border-b-0">
           <HomeLogo />
         </div>
@@ -53,7 +53,7 @@ export default function Sidebar({
 
       <div
         className={cn(
-          "lg:hidden fixed inset-0 z-999 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ease-out-quint",
+          "lg:hidden fixed inset-0 z-9999 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ease-out-quint",
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"

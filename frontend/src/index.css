@@ -421,6 +421,13 @@
   display: none;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50; /* or higher */
+  background: var(--background);
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

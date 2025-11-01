@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 const dialogSizeClasses = {
   xs: "max-w-[559px] lg:min-h-[200px]",
   sm: "max-w-[559px] w-[559px] lg:min-h-[400px]",
-  md: "lg:w-[450px] w-full h-[85vh]",
+  md: "lg:w-[450px] w-full h-full lg:h-[90vh]",
   lg: "lg:w-[900px] lg:max-w-[900px] w-full h-full  lg:h-[60vh]",
 } as const;
 
@@ -68,7 +68,7 @@ function DialogContent({
     "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95";
 
   const baseLayoutClasses =
-    "fixed top-[50%] left-[50%] flex z-50 overflow-hidden flex-col translate-x-[-50%] translate-y-[-50%] " +
+    "fixed top-[50%] left-[50%] flex z-9999 overflow-hidden flex-col translate-x-[-50%] translate-y-[-50%] " +
     "gap-4 rounded-lg border bg-bg-primary p-6 shadow-lg duration-200";
 
   const computedSizeClass = dialogSizeClasses[variant];

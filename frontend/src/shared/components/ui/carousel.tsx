@@ -179,7 +179,7 @@ function CarouselPrevious({
       // variant={variant}
       // size={size}
       className={cn(
-        "absolute size-8 rounded-full cursor-pointer  inline-flex items-center disabled:pointer-events-none lg:disabled:opacity-40  pointer-events-auto bg-primary/10 border border-primary/10 gap-0 transition-opacity opacity-0 duration-200 lg:group-hover:opacity-100 z-50",
+        "absolute size-8 rounded-full cursor-pointer  inline-flex items-center disabled:pointer-events-none lg:disabled:opacity-40  pointer-events-auto bg-[#3c1d3d] border border-[#a02aa3] gap-0 transition-opacity opacity-0 duration-200 lg:group-hover:opacity-100 z-50",
         orientation === "horizontal"
           ? "top-[50%] left-2 -translate-y-1/2"
           : "-top-[50%] left-1/2 -translate-x-1/2 rotate-90",
@@ -207,7 +207,7 @@ function CarouselNext({
     <button
       data-slot="carousel-next"
       className={cn(
-        "absolute size-8 rounded-full cursor-pointer  inline-flex items-center disabled:pointer-events-none lg:disabled:opacity-40  pointer-events-auto bg-primary/10 border border-primary/10 gap-0 transition-opacity opacity-0 duration-200 lg:group-hover:opacity-100 z-50",
+        "absolute size-8 rounded-full cursor-pointer  inline-flex items-center disabled:pointer-events-none lg:disabled:opacity-40  pointer-events-auto bg-[#3c1d3d] border border-[#a02aa3] gap-0 transition-opacity opacity-0 duration-200 lg:group-hover:opacity-100 z-50",
         orientation === "horizontal"
           ? " top-[50%] right-2 -translate-y-1/2"
           : "-bottom-[50%] left-1/2 -translate-x-1/2 rotate-90",

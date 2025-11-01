@@ -5,16 +5,15 @@ import {
   AccordionTrigger,
 } from "@/shared/components/ui/accordion";
 import { faqs } from "@/shared/lib/data";
+import SectionTitle from "./section-title";
 
 export default function FAQSection() {
   return (
     <div className="flex flex-col gap-4 lg:p-6 min-h-0 min-w-0 shrink-0">
-      <div className="flex flex-col lg:gap-1">
-        <span className="font-medium leading-tight text-xl">FAQs</span>
-        <span className="leading-normal text-sm text-text-secondary">
-          Everything you need to know about our NFT collections and platform.
-        </span>
-      </div>
+      <SectionTitle
+        title="FAQs"
+        subTitle=" Everything you need to know about our NFT collections and platform."
+      />
 
       <Accordion type="single" collapsible className="w-full">
         {faqs.map((faq, index) => (

@@ -14,6 +14,7 @@ import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import useEmblaCarousel from "embla-carousel-react";
 import { cn } from "@/shared/lib/utils";
 import { useEffect, useState } from "react";
+import SectionTitle from "./section-title";
 interface CarouselSectionProps {
   title: string;
   subtitle: string;
@@ -40,15 +41,8 @@ export default function CarouselSection({
         // statsPanelOpen ? "lg:pr-6" : "lg:pr-0"
       )}
     >
-      {/* Header */}
-      <div className="flex flex-col lg:gap-1">
-        <span className="font-medium leading-tight text-xl">{title}</span>
-        <span className="leading-normal text-sm text-text-secondary">
-          {subtitle}
-        </span>
-      </div>
+      <SectionTitle title={title} subTitle={subtitle} />
 
-      {/* Carousel */}
       <TweenCarousel
         items={items}
         variant={variant}

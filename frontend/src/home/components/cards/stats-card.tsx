@@ -14,7 +14,7 @@ export default function StatsCard({
   const isPositive = percentChange >= 0;
 
   return (
-    <div className="inline-flex relative w-max min-w-full items-center rounded group cursor-pointer hover:bg-primary/10 h-[60px] text-sm gap-2 px-2 transition-colors">
+    <div className="inline-flex relative w-max min-w-full items-center rounded group cursor-pointer hover:bg-primary/10 h-[60px] text-sm gap-2 transition-colors pl-2">
       <div className="flex items-center shrink-0 justify-start overflow-visible w-[100px] grow">
         <div className="flex items-center gap-3 w-auto max-w-full">
           <img

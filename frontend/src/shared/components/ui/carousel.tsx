@@ -134,11 +134,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
   const { carouselRef, orientation } = useCarousel();
 
   return (
-    <div
-      ref={carouselRef}
-      className="overflow-hidden"
-      data-slot="carousel-content"
-    >
+    <div ref={carouselRef} className="" data-slot="carousel-content">
       <div
         className={cn(
           "flex",
@@ -178,24 +174,24 @@ function CarouselPrevious({
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
-    <Button
+    <button
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
+      // variant={variant}
+      // size={size}
       className={cn(
-        "absolute size-8 rounded-full cursor-pointer",
+        "absolute size-8 rounded-full cursor-pointer  inline-flex items-center disabled:pointer-events-none disabled:opacity-40 lg:disabled:opacity-0 lg:disabled:group-hover:opacity-40 pointer-events-auto bg-[rgb(20,20,21)] border border-border-1 gap-0 transition-opacity opacity-100 lg:opacity-0 duration-200 lg:group-hover:opacity-100 z-50",
         orientation === "horizontal"
-          ? "top-1/2 left-2 "
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          ? "top-[50%] left-2 -translate-y-1/2"
+          : "-top-[50%] left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft />
+      <ChevronLeft className="text-white size-5 shrink-0 mx-auto" />
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </button>
   );
 }
 
@@ -208,24 +204,22 @@ function CarouselNext({
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
-    <Button
+    <button
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
       className={cn(
-        "absolute size-8 rounded-full cursor-pointer",
+        "absolute size-8 rounded-full cursor-pointer  inline-flex items-center disabled:pointer-events-none disabled:opacity-40 g:disabled:opacity-0 lg:disabled:group-hover:opacity-40  pointer-events-auto bg-[rgb(20,20,21)] border border-border-1 gap-0 transition-opacity opacity-100 lg:opacity-0 duration-200 lg:group-hover:opacity-100 z-50",
         orientation === "horizontal"
-          ? " top-1/2 right-2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          ? " top-[50%] right-2 -translate-y-1/2"
+          : "-bottom-[50%] left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight />
+      <ChevronRight className="text-white size-5 shrink-0 mx-auto" />
       <span className="sr-only">Next slide</span>
-    </Button>
+    </button>
   );
 }
 

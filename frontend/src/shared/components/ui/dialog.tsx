@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 const dialogSizeClasses = {
   xs: "max-w-[559px] lg:min-h-[200px]",
   sm: "max-w-[559px] w-[559px] lg:min-h-[400px]",
-  md: "max-w-[704px]",
+  md: "lg:w-[450px] w-full h-full lg:h-[90vh]",
   lg: "lg:w-[900px] lg:max-w-[900px] w-full h-full  lg:h-[60vh]",
 } as const;
 
@@ -44,7 +44,7 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-999 bg-black/40",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-999 bg-black/30 shadow-2xl",
         className
       )}
       {...props}
@@ -68,13 +68,8 @@ function DialogContent({
     "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95";
 
   const baseLayoutClasses =
-    "fixed top-[50%] left-[50%] flex z-50 overflow-hidden flex-col translate-x-[-50%] translate-y-[-50%] " +
-    "gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200";
-
-  // const baseMaxHeight = "max-h-[90svh] min-w-sm md:min-w-lg";
-
-  // const effectiveVariant =
-  // variant === "previewForm" && isMaximized ? "full" : variant;
+    "fixed top-[50%] left-[50%] flex z-9999 overflow-hidden flex-col translate-x-[-50%] translate-y-[-50%] " +
+    "gap-4 rounded-lg border bg-bg-primary p-6 shadow-lg duration-200";
 
   const computedSizeClass = dialogSizeClasses[variant];
 
@@ -97,7 +92,7 @@ function DialogContent({
       >
         {children}
         {showCloseButton && (
-          <DialogPrimitive.Close className="absolute top-4 rounded-full right-4 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border border-border-1 h-10 w-10 items-center justify-center flex cursor-pointer">
+          <DialogPrimitive.Close className="absolute top-4 rounded-full right-4 transition-opacity hover:opacity-100 focus:ring-0 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border border-border-1 h-8 w-8 items-center justify-center flex cursor-pointer">
             <X />
           </DialogPrimitive.Close>
         )}

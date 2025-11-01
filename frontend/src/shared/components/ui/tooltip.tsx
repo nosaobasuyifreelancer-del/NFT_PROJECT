@@ -59,15 +59,16 @@ function TooltipContent({
 export function CustomTooltip({
   trigger,
   content,
-  ...contentProps
+  ...tooltipProps
 }: {
   trigger: React.ReactNode;
-  content: React.ReactNode;
-} & React.ComponentProps<typeof TooltipPrimitive.Content>) {
+  content: string;
+} & React.ComponentProps<typeof Tooltip> &
+  React.ComponentProps<typeof TooltipContent>) {
   return (
-    <Tooltip>
+    <Tooltip {...tooltipProps}>
       <TooltipTrigger asChild>{trigger}</TooltipTrigger>
-      <TooltipContent {...contentProps}>{content}</TooltipContent>
+      <TooltipContent {...tooltipProps}>{content}</TooltipContent>
     </Tooltip>
   );
 }

@@ -34,7 +34,7 @@ export const FeatureCollectionCard: React.FC<featureColProps> = ({
   const titleResult = truncateText(title, maxTitleLength);
   return (
     <Card
-      className="rounded-sm border-0 min-h-0 min-w-0 hover:-translate-y-0.5 hover:scale-[1.01] active:scale-[1.005] shadow-xs hover:shadow-xs ext-text-primary duration-200 ease-out-circ perspective-[0] translate-z-0 backface-hidden shrink-0"
+      className="p-0 min-h-0 min-w-0 rounded-lg border border-border-1 bg-bg-primary-transparent text-text-primary duration-200 ease-out-quint perspective-[0] translate-z-0 backface-hidden hover:-translate-y-0.5 hover:scale-[1.01] active:scale-[1.005] shadow-xs hover:shadow-xs"
       onClick={onClick}
     >
       <CardContent

@@ -47,7 +47,7 @@ export const collectionSlides = [
     subUserName: "goblin.wtf",
 
     image:
-      "https://i2.seadn.io/ethereum/f16eb347d152433c81afe6887fd93613/9f9ff0f77933af099d2893a35b6377/649f9ff0f77933af099d2893a35b6377.png?w=2000",
+      "https://i2.seadn.io/admin-uploads/5466e3f1eecdb0baa1cab1545414b5/ae5466e3f1eecdb0baa1cab1545414b5.png?w=2000",
     slidesInfo: [
       {
         label: "FLOOR PRICE",
@@ -73,7 +73,7 @@ export const collectionSlides = [
     subUserName: "goblin.wtf",
 
     image:
-      "https://i2.seadn.io/ethereum/f16eb347d152433c81afe6887fd93613/9f9ff0f77933af099d2893a35b6377/649f9ff0f77933af099d2893a35b6377.png?w=2000",
+      "https://i2.seadn.io/ethereum/a68479575a6e46c6a2b999a8c855c3c0/70a898541700d441c15b9f7e990b48/8d70a898541700d441c15b9f7e990b48.jpeg?w=2000",
     slidesInfo: [
       {
         label: "FLOOR PRICE",
@@ -98,7 +98,7 @@ export const collectionSlides = [
     username: "Visions 4",
     subUserName: "goblin.wtf",
     image:
-      "https://i2.seadn.io/ethereum/f16eb347d152433c81afe6887fd93613/9f9ff0f77933af099d2893a35b6377/649f9ff0f77933af099d2893a35b6377.png?w=2000",
+      "https://i2.seadn.io/collection/negatives-nft/image_type_hero_desktop/ad0999c3ca6545d1a8185d70480f52/cdad0999c3ca6545d1a8185d70480f52.png?w=2000",
     slidesInfo: [
       {
         label: "FLOOR PRICE",
@@ -123,7 +123,7 @@ export const collectionSlides = [
     username: "Visions 5",
     subUserName: "goblin.wtf",
     image:
-      "https://i2.seadn.io/ethereum/f16eb347d152433c81afe6887fd93613/9f9ff0f77933af099d2893a35b6377/649f9ff0f77933af099d2893a35b6377.png?w=2000",
+      "https://i2.seadn.io/admin-uploads/5a05974101bc6e086543b63e9eec5a/8c5a05974101bc6e086543b63e9eec5a.png?w=2000",
     slidesInfo: [
       {
         label: "FLOOR PRICE",

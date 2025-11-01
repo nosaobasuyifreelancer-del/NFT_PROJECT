@@ -6,8 +6,8 @@ import { cn } from "@/shared/lib/utils";
 
 export default function StatsPanel({
   collectionItems,
-  onClose,
-  showStats,
+  statsPanelOpen,
+  onStatsPanelOpenChange,
   isMobile = false,
 }: {
   collectionItems: {
@@ -16,18 +16,18 @@ export default function StatsPanel({
     ethValue: number;
     percentChange: number;
   }[];
-  showStats?: boolean;
-  onClose?: () => void;
+  statsPanelOpen: boolean;
+  onStatsPanelOpenChange: VoidFunction;
   isMobile?: boolean;
 }) {
   return (
     <div
       className={cn(
-        "transition-all duration-300 ease-out-quint overflow-hidden z-900  min-h-0 shrink-0 ",
-        showStats
-          ? " translate-x-0 flex max-w-[365px] h-full "
-          : "hidden lg:flex lg:w-0",
-        isMobile ? "flex lg:hidden max-h-[353px] p-2" : "hidden lg:flex"
+        "transition-[flex-basis] duration-300 ease-out-quint overflow-hidden z-900  min-h-0 shrink-0",
+        statsPanelOpen
+          ? " translate-x-0 basis-[365px] h-full lg:pr-4"
+          : "hidden lg:flex lg:basis-0",
+        isMobile ? "flex lg:hidden max-h-[353px]" : "hidden lg:flex"
       )}
       id="stats"
     >
@@ -46,11 +46,11 @@ export default function StatsPanel({
           <CustomTooltip
             trigger={
               <Button
-                onClick={onClose}
+                onClick={onStatsPanelOpenChange}
                 aria-label="Close Stats"
                 className={cn(
                   "flex [&_svg:not([class*='size-'])]:size-5",
-                  !isMobile && !showStats && "hidden"
+                  !isMobile && !statsPanelOpen && "hidden"
                 )}
               >
                 {isMobile ? "View all" : <ChevronsRight />}

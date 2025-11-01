@@ -13,8 +13,14 @@ import { Separator } from "@/shared/components/ui/separator";
 import { collectionSlides } from "@/shared/lib/data";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import React from "react";
+import { useLocalStorage } from "@uidotdev/usehooks";
+import { localStorageKeys } from "@/shared/lib/localStorageKeys";
 
-export default function CollectionCarousel() {
+export default function CollectionCarousel({
+  showStats = false,
+}: {
+  showStats: boolean;
+}) {
   const autoplayDelay = 5000;
   const autoplay = useRef(
     Autoplay({
@@ -27,10 +33,17 @@ export default function CollectionCarousel() {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [api, setApi] = useState<any>(null);
+  const [_, setSelectedImgSrc] = useLocalStorage(
+    localStorageKeys.collectionCarouselSelectedImageSrc,
+    ""
+  );
 
   useEffect(() => {
     if (!api) return;
-    const onSelect = () => setSelectedIndex(api.selectedScrollSnap());
+    const onSelect = () => {
+      setSelectedIndex(api.selectedScrollSnap());
+      setSelectedImgSrc(collectionSlides[api.selectedScrollSnap()].image);
+    };
     api.on("select", onSelect);
     onSelect();
     return () => api.off("select", onSelect);
@@ -50,7 +63,10 @@ export default function CollectionCarousel() {
               <div className="p-1 rounded-sm">
                 <Card className="overflow-hidden border-0 min-h-0">
                   <CardContent
-                    className="relative flex aspect-video items-end p-6 min-h-0 lg:h-[400px] md:h-[450px] h-[430px] overflow-x-hidden rounded-sm"
+                    className={cn(
+                      "relative flex aspect-video items-end p-6 min-h-0  md:h-[450px] h-[430px] overflow-x-hidden rounded-sm ease-out-quint",
+                      showStats ? "lg:h-[400px]" : "lg:h-[600px]"
+                    )}
                     style={{
                       backgroundImage: `url(${slide.image})`,
                       backgroundSize: "cover",
@@ -93,12 +109,8 @@ export default function CollectionCarousel() {
           ))}
         </CarouselContent>
 
-        <div className="flex items-center cursor-pointer absolute inset-y-0 mx-4 left-0 ">
-          <CarouselPrevious className="z-50 w-10 h-10 opacity-0 group-hover:opacity-100  transition-opacity duration-300" />
-        </div>
-        <div className="flex items-center cursor-pointer absolute inset-y-0 mx-4 right-0 ">
-          <CarouselNext className="z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-10 h-10" />
-        </div>
+        <CarouselPrevious className="size-10" />
+        <CarouselNext className="size-10" />
       </Carousel>
 
       <div className="mt-3 h-1.5 ">

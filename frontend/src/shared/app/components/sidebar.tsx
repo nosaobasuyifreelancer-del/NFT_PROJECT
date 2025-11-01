@@ -49,11 +49,13 @@ export default function Sidebar({
             );
           })}
         </nav>
+
+        <div className="fixed inset-0 ease-out-quint data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fade-out-0 animate-out pointer-events-none z-[-1] bg-transparent transition-colors duration-300 ease-out-quint group-hover:bg-[rgb(0,0,0,40%)]"></div>
       </div>
 
       <div
         className={cn(
-          "lg:hidden fixed inset-0 z-9999 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ease-out-quint",
+          "lg:hidden fixed inset-0 z-9999 bg-black/40 backdrop-blur-sm transition-[flex-basis] duration-300 ease-out-quint",
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -62,8 +64,8 @@ export default function Sidebar({
       >
         <div
           className={cn(
-            "absolute group top-0 left-0 h-full w-full max-w-full bg-bg-primary border-r border-border-1  flex flex-col transition-transform duration-300 ease-out-quint",
-            isOpen ? "translate-x-0" : "-translate-x-full"
+            "absolute group top-0 left-0 h-full w-full max-w-full bg-bg-primary border-r border-border-1  flex flex-col transition-transform duration-300 ",
+            isOpen ? "translate-x-0" : "-translate-x-full "
           )}
           onClick={(e) => e.stopPropagation()}
         >

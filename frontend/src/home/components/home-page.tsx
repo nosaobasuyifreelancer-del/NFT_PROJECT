@@ -5,7 +5,12 @@ import { cn } from "@/shared/lib/utils";
 import { CustomTooltip } from "@/shared/components/ui/tooltip";
 import StatsPanel from "./blocks/stats-panel";
 import CollectionCarousel from "./blocks/collection-carousel";
-import { carouselSections, collectionItems } from "@/shared/lib/data";
+import {
+  collectionItems,
+  editorsPicks,
+  newArrivals,
+  trendingCollections,
+} from "@/shared/lib/data";
 import CarouselSection from "./blocks/carousel-section";
 import FAQSection from "./blocks/faq-section";
 import HighestWeeklySales from "./blocks/highest-weekly-sales";
@@ -15,13 +20,13 @@ export default function HomePage() {
   return (
     <div
       className={cn(
-        "w-full lg:flex-row flex flex-col min-h-0 overflow-hidden min-w-0 scrollbar-hide",
+        "w-full lg:flex-row flex-col flex min-h-0 overflow-hidden min-w-0 scrollbar-hide justify-between pb-6",
         showStats ? "gap-0" : ""
       )}
     >
       <div
         className={cn(
-          "flex flex-1 flex-col  gap-5 min-h-0 min-w-0 overflow-y-auto scrollbar-hide",
+          "flex flex-1 flex-col  gap-5 min-h-0 min-w-0 overflow-y-auto scrollbar-hide shrink-0",
           showStats ? "lg:max-w-full max-w-full " : "max-w-full"
         )}
         id="main"
@@ -44,33 +49,32 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide overflow-x-hidden">
-          <div
-            className={cn(
-              "flex gap-6 pb-6 min-h-0 shrink-0",
-              showStats ? "mr-[365px]" : ""
-            )}
-          >
+        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide shrink-o overflow-y-auto gap-5">
+          <div className="flex flex-col gap-6 pb-6 min-h-0 shrink-0">
             <CollectionCarousel />
           </div>
+          <StatsPanel collectionItems={collectionItems} isMobile />
 
-          <div className="flex flex-col gap-6 min-w-0 min-h-0">
-            <StatsPanel collectionItems={collectionItems} isMobile />
-            {carouselSections.map((section, index) => (
-              <CarouselSection
-                key={index}
-                title={section.title}
-                subtitle={section.subtitle}
-                items={section.items}
-              />
-            ))}
-            <div
-              className={cn("min-h-0 shrink-0 ", showStats ? "mr-[365px]" : "")}
-            >
-              <HighestWeeklySales />
-              <FAQSection />
-            </div>
-          </div>
+          <CarouselSection
+            title={trendingCollections.title}
+            subtitle={trendingCollections.subtitle}
+            items={trendingCollections.items}
+            variant="trending"
+          />
+
+          <CarouselSection
+            title={editorsPicks.title}
+            subtitle={editorsPicks.subtitle}
+            items={editorsPicks.items}
+          />
+          <HighestWeeklySales />
+          <CarouselSection
+            title={newArrivals.title}
+            subtitle={newArrivals.subtitle}
+            items={newArrivals.items}
+          />
+
+          <FAQSection />
         </div>
       </div>
       <StatsPanel
@@ -80,4 +84,48 @@ export default function HomePage() {
       />
     </div>
   );
+}
+
+{
+  /* <div
+        className={cn(
+          "flex flex-1 flex-col  gap-5 min-h-0 min-w-0 overflow-y-auto scrollbar-hide",
+          showStats ? "lg:max-w-full max-w-full " : "max-w-full"
+        )}
+        id="main"
+      >
+        
+        </div>
+        <div className="flex min-h-0 min-w-0 flex-col scrollbar-hide overflow-x-hidden">
+          <div
+            className={cn(
+              "flex flex-col gap-6 pb-6 min-h-0 shrink-0",
+              showStats ? "" : ""
+            )}
+          >
+            <CollectionCarousel />
+            <StatsPanel collectionItems={collectionItems} isMobile />
+            <CarouselSection
+              title={trendingCollections.title}
+              subtitle={trendingCollections.subtitle}
+              items={trendingCollections.items}
+              variant="trending"
+            />
+
+            <CarouselSection
+              title={editorsPicks.title}
+              subtitle={editorsPicks.subtitle}
+              items={editorsPicks.items}
+            />
+            <HighestWeeklySales />
+            <CarouselSection
+              title={newArrivals.title}
+              subtitle={newArrivals.subtitle}
+              items={newArrivals.items}
+            />
+
+            <FAQSection />
+          </div>
+        </div>
+      </div> */
 }

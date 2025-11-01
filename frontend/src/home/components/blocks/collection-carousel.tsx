@@ -93,11 +93,11 @@ export default function CollectionCarousel() {
           ))}
         </CarouselContent>
 
-        <div className="flex items-center cursor-pointer absolute inset-y-0 mx-4 left-0 w-8">
-          <CarouselPrevious className="z-50 opacity-0 group-hover:opacity-100  transition-opacity duration-300" />
+        <div className="flex items-center cursor-pointer absolute inset-y-0 mx-4 left-0 ">
+          <CarouselPrevious className="z-50 w-10 h-10 opacity-0 group-hover:opacity-100  transition-opacity duration-300" />
         </div>
-        <div className="flex items-center cursor-pointer absolute inset-y-0 mx-4 right-0 w-8">
-          <CarouselNext className="z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="flex items-center cursor-pointer absolute inset-y-0 mx-4 right-0 ">
+          <CarouselNext className="z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-10 h-10" />
         </div>
       </Carousel>
 

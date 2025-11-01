@@ -10,8 +10,6 @@ import {
 import { FeatureCollectionCard } from "../cards/feature-collection-card";
 import TrendingCollectionsCard from "../cards/trending-collections-card";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
-import type { EmblaCarouselType, EmblaEventType } from "embla-carousel";
-import { useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
 interface CarouselSectionProps {
@@ -21,18 +19,19 @@ interface CarouselSectionProps {
     imgUrl: string;
     title: string;
     subTitle: string;
-  }[][];
+  }[];
+  variant?: "trending" | "default";
 }
 
 export default function CarouselSection({
   title,
   subtitle,
   items,
+  variant = "default",
 }: CarouselSectionProps) {
-  const isTrending = /trending/i.test(title); // detect “Trending”
-
   return (
-    <div className="flex flex-col gap-4 p-6 min-h-0 min-w-0">
+    <div className="flex flex-col gap-4 lg:p-6 min-h-0 min-w-0 shrink-0">
+      {/* Header */}
       <div className="flex flex-col lg:gap-1">
         <span className="font-medium leading-tight text-xl">{title}</span>
         <span className="leading-normal text-sm text-text-secondary">
@@ -40,110 +39,41 @@ export default function CarouselSection({
         </span>
       </div>
 
-      <div className="flex flex-col gap-10">
-        {items.map((group, groupIdx) => (
-          <TweenCarousel key={groupIdx} group={group} isTrending={isTrending} />
-        ))}
-      </div>
+      {/* Carousel */}
+      <TweenCarousel items={items} variant={variant} />
     </div>
   );
 }
 
-const TWEEN_FACTOR_BASE = 0.84;
-
-const numberWithinRange = (num: number, min: number, max: number): number =>
-  Math.min(Math.max(num, min), max);
-
 function TweenCarousel({
-  group,
-  isTrending,
+  items,
+  variant,
 }: {
-  group: { imgUrl: string; title: string; subTitle: string }[];
-  isTrending: boolean;
+  items: { imgUrl: string; title: string; subTitle: string }[];
+  variant: "trending" | "default";
 }) {
   const wheelGestures = WheelGesturesPlugin();
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRef] = useEmblaCarousel(
     { loop: false, align: "center", dragFree: false },
     [wheelGestures]
   );
 
-  const tweenFactor = useRef(0);
-
-  const setTweenFactor = useCallback((api: EmblaCarouselType) => {
-    tweenFactor.current = TWEEN_FACTOR_BASE * api.scrollSnapList().length;
-  }, []);
-
-  const tweenOpacity = useCallback(
-    (api: EmblaCarouselType, eventName?: EmblaEventType) => {
-      const engine = api.internalEngine();
-      const scrollProgress = api.scrollProgress();
-      const slidesInView = api.slidesInView();
-      const isScrollEvent = eventName === "scroll";
-
-      api.scrollSnapList().forEach((snap: number, snapIdx: number) => {
-        let diffToTarget = snap - scrollProgress;
-        const slidesInSnap = engine.slideRegistry[snapIdx];
-
-        slidesInSnap.forEach((slideIdx: number) => {
-          if (isScrollEvent && !slidesInView.includes(slideIdx)) return;
-
-          if (engine.options.loop) {
-            engine.slideLooper.loopPoints.forEach((loopItem: any) => {
-              const target = loopItem.target();
-              if (slideIdx === loopItem.index && target !== 0) {
-                const sign = Math.sign(target);
-                if (sign === -1) diffToTarget = snap - (1 + scrollProgress);
-                if (sign === 1) diffToTarget = snap + (1 - scrollProgress);
-              }
-            });
-          }
-
-          const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
-          const opacity = numberWithinRange(tweenValue, 0.3, 1).toString();
-          api.slideNodes()[slideIdx].style.opacity = opacity;
-        });
-      });
-    },
-    []
-  );
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    setTweenFactor(emblaApi);
-    tweenOpacity(emblaApi);
-
-    emblaApi
-      .on("reInit", setTweenFactor)
-      .on("reInit", tweenOpacity)
-      .on("scroll", tweenOpacity)
-      .on("slideFocus", tweenOpacity);
-
-    return () => {
-      emblaApi
-        .off("reInit", setTweenFactor)
-        .off("reInit", tweenOpacity)
-        .off("scroll", tweenOpacity)
-        .off("slideFocus", tweenOpacity);
-    };
-  }, [emblaApi, tweenOpacity, setTweenFactor]);
-
-  const combinedGroups = isTrending
-    ? group.reduce(
-        (
-          acc: { imgUrl: string; title: string; subTitle: string }[][],
-          curr,
-          idx
-        ) => {
-          if (idx % 2 === 0) {
-            acc.push([curr]);
-          } else {
-            acc[acc.length - 1].push(curr);
-          }
-          return acc;
-        },
-        []
-      )
-    : group.map((item) => [item]);
+  // If variant is "trending", group into pairs (2 per column)
+  const groupedItems =
+    variant === "trending"
+      ? items.reduce(
+          (
+            acc: { imgUrl: string; title: string; subTitle: string }[][],
+            curr,
+            idx
+          ) => {
+            if (idx % 2 === 0) acc.push([curr]);
+            else acc[acc.length - 1].push(curr);
+            return acc;
+          },
+          []
+        )
+      : items.map((item) => [item]);
 
   return (
     <Carousel
@@ -152,20 +82,20 @@ function TweenCarousel({
       opts={{ loop: true, align: "start", dragFree: false }}
     >
       <CarouselContent ref={emblaRef}>
-        {combinedGroups.map((pair, pairIdx) => (
+        {groupedItems.map((pair, idx) => (
           <CarouselItem
-            key={pairIdx}
+            key={idx}
             className={`transition-opacity duration-300 ${
-              isTrending
+              variant === "trending"
                 ? "md:basis-1/3 lg:basis-1/4"
                 : "md:basis-1/3 lg:basis-1/3"
             }`}
           >
-            {isTrending ? (
+            {variant === "trending" ? (
               <div className="flex flex-col gap-3">
-                {pair.map((card, idx) => (
+                {pair.map((card, i) => (
                   <TrendingCollectionsCard
-                    key={idx}
+                    key={i}
                     imgUrl={card.imgUrl}
                     title={card.title}
                     description={card.subTitle}
@@ -183,6 +113,7 @@ function TweenCarousel({
           </CarouselItem>
         ))}
       </CarouselContent>
+
       <CarouselPrevious className="z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <CarouselNext className="z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </Carousel>

@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router";
 import RootLayout from "./root-layout";
 import HomeRoutes from "@/home";
+import NFTDetailsRoutes from "@/nft-details";
 
 function MainRoutes() {
   return (
@@ -9,6 +10,7 @@ function MainRoutes() {
         <Route index element={<Navigate to="/home" replace />} />
 
         <Route path="home/*" element={<HomeRoutes />} />
+        <Route path="collection/nft_details/*" element={<NFTDetailsRoutes />} />
       </Routes>
     </RootLayout>
   );

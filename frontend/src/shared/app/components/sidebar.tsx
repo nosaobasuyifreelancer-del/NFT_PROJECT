@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib/utils";
 import { X } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import HomeLogo from "@/shared/assets/logo.svg?react";
 import Legend from "@/shared/assets/legend.svg?react";
 import { sideBarMenu } from "@/shared/lib/data";
@@ -11,24 +11,30 @@ export default function Sidebar({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const location = useLocation();
   return (
     <>
       <div className="hidden fixed  group lg:flex z-9999 h-screen flex-col border-r border-border-1 bg-bg-primary px-2 py-4 w-[52px] hover:w-[225px] transition-[width] duration-300 ease-out-quint overflow-hidden">
-        <div className="hidden items-center gap-3 mb-6 group-hover:flex transition-opacity duration-300 ease-out-quint border-b border-border-1 lg:border-b-0">
+        <Link
+          className="hidden items-center gap-3 mb-6 group-hover:flex transition-opacity duration-300 ease-out-quint border-b border-border-1 lg:border-b-0"
+          to={"/"}
+          replace
+        >
           <HomeLogo />
-        </div>
+        </Link>
 
-        <div className="flex items-center mb-6 opacity-100 group-hover:hidden transition-opacity duration-300 ease-out-quint">
+        <Link
+          className="flex items-center mb-6 opacity-100 group-hover:hidden transition-opacity duration-300 ease-out-quint"
+          to={"/"}
+          replace
+        >
           <Legend className="w-full h-10 text-text-primary" />
-        </div>
+        </Link>
 
         <nav className="flex flex-col gap-3 text-sm text-muted-foreground">
           {sideBarMenu.map((item) => {
-            const pathToMatch = item?.url
-              ? item?.url.split("/")?.at(-1)
-              : undefined;
-            const urlIsActive =
-              !!pathToMatch && location.pathname.includes(pathToMatch);
+            const urlIsActive = location.pathname === item.url;
+
             return (
               <Link
                 to={item.url}
@@ -70,7 +76,9 @@ export default function Sidebar({
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-border-1 py-8 px-6">
-            <HomeLogo className="w-24" />
+            <Link to={"/"} replace>
+              <HomeLogo className="w-24" />
+            </Link>
             <div
               className="h-10 w-10 rounded-full border border-border-1 items-center justify-center flex cursor-pointer"
               onClick={onClose}

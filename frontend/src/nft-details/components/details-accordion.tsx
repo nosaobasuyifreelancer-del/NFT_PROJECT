@@ -8,32 +8,17 @@ import Traits from "@/shared/assets/traits.svg?react";
 import Blockchain from "@/shared/assets/blockchain.svg?react";
 import MoreInfo from "@/shared/assets/moreInfo.svg?react";
 import About from "@/shared/assets/about.svg?react";
-import TraitsCard from "./traits-card";
 import { truncateMiddle } from "@/shared/lib/utils";
 import { CustomTooltip } from "@/shared/components/ui/tooltip";
+import TraitsCard from "@/nft-details/components/traits-card";
+import {
+  blockchainItems,
+  moreInfoItems,
+  traitsCardItems,
+} from "@/shared/lib/data";
 import { MoveUpRight } from "lucide-react";
+import MoreInfoCard from "./more-infor-card";
 
-const traitsCardItems = [
-  { title: "Background", variant: "Mint" },
-  { title: "Body", variant: "Turtleneck Green" },
-  { title: "Face", variant: "Cross Eyed" },
-  { title: "Head", variant: "Beanie Gray" },
-  { title: "Skin", variant: "Normal" },
-];
-const blockchainItems = [
-  {
-    title: "Contract Address",
-    details: "0X4T47384546789098707X098636384830095ERC11555Polygon",
-    link: "https://polygonscan.com/address/0x4T123456789098707X0986ABCDEF00095ERC11555Polygon",
-  },
-  {
-    title: "Token ID",
-    details: "07X098634783743840095",
-    link: "https://polygonscan.com/address/0x4T123456789098707X0986ABCDEF00095ERC11555Polygon",
-  },
-  { title: "Token Standard", details: "ERC11555" },
-  { title: "Chain", details: "Polygon" },
-];
 const nftDetailItems = [
   {
     title: "Traits",
@@ -45,7 +30,15 @@ const nftDetailItems = [
             key={i}
             className="flex-none basis-full sm:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)]"
           >
-            <TraitsCard header={traits.title} variant={traits.variant} />
+            <TraitsCard
+              header={traits.title}
+              variant={traits.variant}
+              count={traits.count}
+              percentage={traits.percentage}
+              price={traits.price}
+              currency={traits.currency}
+              bgVariant={traits.bgVariant as "default" | "alt"}
+            />
           </div>
         ))}
       </div>
@@ -108,9 +101,25 @@ const nftDetailItems = [
   {
     title: "More from this collection",
     icon: <MoreInfo />,
+    content: (
+      <div className="flex flex-wrap gap-3 basis-1/3">
+        {moreInfoItems.map((item, index) => (
+          <div
+            key={index}
+            className="flex-none basis-full sm:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)]"
+          >
+            <MoreInfoCard
+              imgUrl={item.imgUrl}
+              amount={item.amount}
+              name={item.name}
+              currency={item.currency}
+            />
+          </div>
+        ))}
+      </div>
+    ),
   },
 ];
-
 export default function NFTDetails() {
   return (
     <Accordion type="multiple" className="w-full gap-2 flex flex-col">

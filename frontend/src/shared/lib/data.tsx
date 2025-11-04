@@ -541,3 +541,87 @@ export const faqs = [
       "Original creators receive royalties on secondary sales automatically via smart contracts. The percentage is set by the creator and enforced on-chain.",
   },
 ];
+export const traitsCardItems = [
+  {
+    title: "Background",
+    variant: "Mint",
+    count: "1,245",
+    percentage: "12%",
+    price: "5.85",
+    currency: "ETH",
+    bgVariant: "default",
+  },
+  {
+    title: "Body",
+    variant: "Turtleneck Green",
+    count: "3,002",
+    percentage: "29%",
+    price: "3.20",
+    currency: "ETH",
+    bgVariant: "alt",
+  },
+  {
+    title: "Face",
+    variant: "Cross Eyed",
+    count: "846",
+    percentage: "8%",
+    price: "7.12",
+    currency: "ETH",
+    bgVariant: "default",
+  },
+  {
+    title: "Head",
+    variant: "Beanie Gray",
+    count: "512",
+    percentage: "5%",
+    price: "9.30",
+    currency: "ETH",
+    bgVariant: "alt",
+  },
+  {
+    title: "Skin",
+    variant: "Normal",
+    count: "4,103",
+    percentage: "41%",
+    price: "2.45",
+    currency: "ETH",
+    bgVariant: "default",
+  },
+];
+export const blockchainItems = [
+  {
+    title: "Contract Address",
+    details: "0X4T47384546789098707X098636384830095ERC11555Polygon",
+    link: "https://polygonscan.com/address/0x4T123456789098707X0986ABCDEF00095ERC11555Polygon",
+  },
+  {
+    title: "Token ID",
+    details: "07X098634783743840095",
+    link: "https://polygonscan.com/address/0x4T123456789098707X0986ABCDEF00095ERC11555Polygon",
+  },
+  { title: "Token Standard", details: "ERC11555" },
+  { title: "Chain", details: "Polygon" },
+];
+export const moreInfoItems = [
+  {
+    imgUrl:
+      "https://i2.seadn.io/admin-uploads/c7a1b7ef35013f8553e140c4d62eb6/30c7a1b7ef35013f8553e140c4d62eb6.png?h=300&w=600",
+    amount: 0.0012,
+    name: "Offrenda #12",
+    currency: "ETH",
+  },
+  {
+    imgUrl:
+      "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+    amount: 0.0021,
+    name: "Offrenda #19",
+    currency: "ETH",
+  },
+  {
+    imgUrl:
+      "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+    amount: 0.0008,
+    name: "Offrenda #27",
+    currency: "ETH",
+  },
+];

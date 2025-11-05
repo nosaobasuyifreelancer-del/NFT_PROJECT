@@ -17,7 +17,7 @@ const stats: StatItem[] = [
   { label: "Floor Price", value: "0.0019", unit: "WETH" },
   { label: "Volume Traded", value: "120.4", unit: "ETH" },
 ];
-const tabs = [
+const nftdetailTabs = [
   {
     label: "Details",
     content: <NFTDetails />,
@@ -36,7 +36,7 @@ export default function NFTDetailsPage() {
     return <div>No NFT data found.</div>;
   }
   return (
-    <div className="flex flex-col lg:flex-row min-h-0 w-full lg:overflow-hidden overflow-auto gap-5 lg:gap-0 scrollbar-hide">
+    <div className="flex flex-col lg:flex-row min-h-0 w-full lg:overflow-hidden overflow-auto gap-5 lg:gap-0 scrollbar-hide px-4 lg:px-0">
       <div className="flex lg:w-[45%] w-full lg:border-r border-b border-border-1 lg:justify-center bg-bg-primary  lg:px-8 flex-col relative py-4 lg:py-6 lg:max-w-[calc(1920px/2)] min-h-[300px] lg:min-h-full ">
         <div
           className="flex grow lg:items-center lg:justify-center w-full rounded-sm lg:max-h-[600px] max-h-[400px]"
@@ -140,7 +140,7 @@ export default function NFTDetailsPage() {
             </div>
           </div>
         </div>
-        <Tabs tabs={tabs} />
+        <Tabs tabs={nftdetailTabs} />
       </div>
     </div>
   );

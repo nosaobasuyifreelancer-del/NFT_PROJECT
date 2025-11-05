@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <div
       className={cn(
-        "w-full lg:flex-row flex-col flex min-h-0 overflow-hidden min-w-0 scrollbar-hide justify-between pb-6",
+        "w-full lg:flex-row flex-col flex min-h-0 overflow-hidden min-w-0 scrollbar-hide justify-between pb-6 px-4 lg:px-0",
         showStats ? "gap-0" : ""
       )}
     >

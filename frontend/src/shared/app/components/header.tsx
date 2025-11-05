@@ -6,6 +6,7 @@ import { Separator } from "@/shared/components/ui/separator";
 import SearchModal from "@/shared/components/search-modal";
 import { Input } from "@/shared/components/ui/input";
 import ConnectWallet from "@/home/components/modals/connect-wallet-modal";
+import { Link } from "react-router";
 
 export default function Header({
   onToggleSidebar,
@@ -60,13 +61,15 @@ export default function Header({
               className="data-[orientation=vertical]:h-6 data-[orientation=vertical]:w-px  bg-border-1 hidden lg:flex"
             />
             <div className="hidden lg:flex">
-              <Button
-                variant="outline"
-                className="
+              <Link to={"/profile"}>
+                <Button
+                  variant="outline"
+                  className="
                [&_svg:not([class*='size-'])]:size-5 "
-              >
-                <CircleUser />
-              </Button>
+                >
+                  <CircleUser />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import {
   Smartphone,
   Usb,
   Wallet,
+  CircleUser,
 } from "lucide-react";
 
 export const sideBarMenu = [
@@ -13,6 +14,11 @@ export const sideBarMenu = [
     title: "Home",
     url: "/home",
     icon: <HomeIcon />,
+  },
+  {
+    title: "profile",
+    url: "/profile",
+    icon: <CircleUser />,
   },
 ];
 

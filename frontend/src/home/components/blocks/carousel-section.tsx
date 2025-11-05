@@ -9,7 +9,9 @@ import {
   type CarouselApi,
 } from "@/shared/components/ui/carousel";
 import { FeatureCollectionCard } from "../cards/feature-collection-card";
-import TrendingCollectionsCard from "../cards/trending-collections-card";
+import TrendingCollectionsCard, {
+  type INFTCardData,
+} from "../cards/trending-nfts-card";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import useEmblaCarousel from "embla-carousel-react";
 import { cn } from "@/shared/lib/utils";
@@ -18,11 +20,7 @@ import SectionTitle from "./section-title";
 interface CarouselSectionProps {
   title: string;
   subtitle: string;
-  items: {
-    imgUrl: string;
-    title: string;
-    subTitle: string;
-  }[];
+  items: INFTCardData[];
   variant?: "trending" | "default";
   statsPanelOpen?: boolean;
 }
@@ -57,7 +55,7 @@ function TweenCarousel({
   variant,
   statsPanelOpen,
 }: {
-  items: { imgUrl: string; title: string; subTitle: string }[];
+  items: INFTCardData[];
   variant: "trending" | "default";
   statsPanelOpen: boolean;
 }) {
@@ -81,21 +79,13 @@ function TweenCarousel({
     });
   }, [api]);
 
-  // If variant is "trending", group into pairs (2 per column)
   const groupedItems =
     variant === "trending"
-      ? items.reduce(
-          (
-            acc: { imgUrl: string; title: string; subTitle: string }[][],
-            curr,
-            idx
-          ) => {
-            if (idx % 2 === 0) acc.push([curr]);
-            else acc[acc.length - 1].push(curr);
-            return acc;
-          },
-          []
-        )
+      ? items.reduce((acc: INFTCardData[][], curr, idx) => {
+          if (idx % 2 === 0) acc.push([curr]);
+          else acc[acc.length - 1].push(curr);
+          return acc;
+        }, [])
       : items.map((item) => [item]);
 
   return (
@@ -119,12 +109,7 @@ function TweenCarousel({
             {variant === "trending" ? (
               <div className="flex flex-col gap-3">
                 {pair.map((card, i) => (
-                  <TrendingCollectionsCard
-                    key={i}
-                    imgUrl={card.imgUrl}
-                    title={card.title}
-                    description={card.subTitle}
-                  />
+                  <TrendingCollectionsCard key={i} nft={card} />
                 ))}
               </div>
             ) : (

@@ -43,7 +43,7 @@ export default function Header({
           </div>
           <div className="flex gap-3 items-center">
             <Button
-              className="lg:hidden inline"
+              className="lg:hidden "
               onClick={() => setOpenModal("wallet")}
             >
               Connect
@@ -59,11 +59,11 @@ export default function Header({
               orientation="vertical"
               className="data-[orientation=vertical]:h-6 data-[orientation=vertical]:w-px  bg-border-1 hidden lg:flex"
             />
-            <div>
+            <div className="hidden lg:flex">
               <Button
                 variant="outline"
                 className="
-              hidden lg:flex [&_svg:not([class*='size-'])]:size-5 "
+               [&_svg:not([class*='size-'])]:size-5 "
               >
                 <CircleUser />
               </Button>

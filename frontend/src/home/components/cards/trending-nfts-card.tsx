@@ -6,17 +6,19 @@ export interface INFTCardData {
   title: string;
   description?: string;
   subTitle?: string;
+  maxTitleLength?: number;
   tags?: string[];
+  currency?: string;
+  count?: number;
+  percentage?: number;
 }
 
-interface TrendingCollectionsCardProps {
+export interface TrendingCollectionsCardProps {
   nft: INFTCardData;
 }
 export default function TrendingCollectionsCard({
   nft,
 }: TrendingCollectionsCardProps) {
-  // const { id, imgUrl, title, description, subTitle } = nft;
-
   return (
     <Link to={`/collection/nft_details/${nft.id}`} state={nft}>
       <div className="flex w-full gap-3 p-0 items-stretch overflow-hidden rounded-lg border border-border-1 bg-bg-primary-transparent pr-4 text-text-primary duration-200 ease-out-circ perspective-[0] translate-z-0 backface-hidden hover:-translate-y-0.5 hover:scale-[1.01] active:scale-[1.005] shadow-xs hover:shadow-xs cursor-pointer">

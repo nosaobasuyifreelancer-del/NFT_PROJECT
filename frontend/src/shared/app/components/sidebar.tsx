@@ -73,7 +73,7 @@ export default function Sidebar({
             "absolute group top-0 left-0 h-full w-full max-w-full bg-bg-primary border-r border-border-1  flex flex-col transition-transform duration-300 ",
             isOpen ? "translate-x-0" : "-translate-x-full "
           )}
-          onClick={(e) => e.stopPropagation()}
+          // onClick={(e) => e.stopPropag ation()}
         >
           <div className="flex items-center justify-between border-b border-border-1 py-8 px-6">
             <Link to={"/"} replace>
@@ -88,22 +88,26 @@ export default function Sidebar({
           </div>
 
           <nav className="flex flex-col gap-3 text-sm text-muted-foreground px-4 py-6">
-            {sideBarMenu.map((item) => (
-              <Link
-                to={item.url}
-                key={item.url}
-                className={cn(
-                  "cursor-pointer no-underline disabled:pointer-events-none disabled:opacity-40 border-border-2 border-0 flex w-full flex-nowrap items-center gap-5 rounded-md bg-transparent p-2 text-text-secondary transition-colors duration-200 ease-out-quint hover:bg-bg-additional-1 hover:text-text-primary h-18 "
-                )}
-              >
-                <div className="flex h-12 w-12 items-center justify-center border border-border-1 rounded-sm text-text-primary size-5">
-                  {item.icon}
-                </div>
-                <span className="leading-normal text-md text-text-primary whitespace-nowrap font-inherit ">
-                  {item.title}
-                </span>
-              </Link>
-            ))}
+            {sideBarMenu.map((item) => {
+              const urlIsActive = location.pathname === item.url;
+              return (
+                <Link
+                  to={item.url}
+                  key={item.url}
+                  className={cn(
+                    "cursor-pointer no-underline disabled:pointer-events-none disabled:opacity-40 border-border-2 border-0 flex w-full flex-nowrap items-center gap-5 rounded-md bg-transparent p-2 text-text-secondary transition-colors duration-200 ease-out-quint hover:bg-bg-additional-1 hover:text-text-primary h-18 ",
+                    urlIsActive ? "bg-bg-additional-2 text-text-white" : ""
+                  )}
+                >
+                  <div className="flex h-12 w-12 items-center justify-center border border-border-1 rounded-sm text-text-primary size-5">
+                    {item.icon}
+                  </div>
+                  <span className="leading-normal text-md text-text-primary whitespace-nowrap font-inherit ">
+                    {item.title}
+                  </span>
+                </Link>
+              );
+            })}
           </nav>
         </div>
       </div>

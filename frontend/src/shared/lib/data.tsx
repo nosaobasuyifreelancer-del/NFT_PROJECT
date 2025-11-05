@@ -19,7 +19,8 @@ export const sideBarMenu = [
 export const collectionSlides = [
   {
     id: 1,
-    username: "Visions 1",
+    title: "Visions 1",
+    subtitle: "goblin.wtf",
     image:
       "https://i2.seadn.io/ethereum/f16eb347d152433c81afe6887fd93613/9f9ff0f77933af099d2893a35b6377/649f9ff0f77933af099d2893a35b6377.png?w=2000",
     slidesInfo: [
@@ -40,11 +41,22 @@ export const collectionSlides = [
         value: "3.5%",
       },
     ],
+    items: {
+      imgUrl:
+        "https://i2.seadn.io/ethereum/f16eb347d152433c81afe6887fd93613/9f9ff0f77933af099d2893a35b6377/649f9ff0f77933af099d2893a35b6377.png?w=2000",
+      title: "Visions 1",
+      subTitle: "goblin.wtf",
+      id: 1,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 9.3,
+    },
   },
   {
     id: 2,
-    username: "Visions 2",
-    subUserName: "goblin.wtf",
+    title: "Visions 2",
+    subtitle: "goblin.wtf2",
 
     image:
       "https://i2.seadn.io/admin-uploads/5466e3f1eecdb0baa1cab1545414b5/ae5466e3f1eecdb0baa1cab1545414b5.png?w=2000",
@@ -66,11 +78,22 @@ export const collectionSlides = [
         value: "3.5%",
       },
     ],
+    items: {
+      imgUrl:
+        "https://i2.seadn.io/admin-uploads/5466e3f1eecdb0baa1cab1545414b5/ae5466e3f1eecdb0baa1cab1545414b5.png?w=2000",
+      title: "Visions 2",
+      subTitle: "goblin.wtf2",
+      id: 2,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 9.3,
+    },
   },
   {
     id: 3,
-    username: "Visions 3",
-    subUserName: "goblin.wtf",
+    title: "Visions 3",
+    subtitle: "goblin.wtf3",
 
     image:
       "https://i2.seadn.io/ethereum/a68479575a6e46c6a2b999a8c855c3c0/70a898541700d441c15b9f7e990b48/8d70a898541700d441c15b9f7e990b48.jpeg?w=2000",
@@ -92,11 +115,22 @@ export const collectionSlides = [
         value: "3.5%",
       },
     ],
+    items: {
+      imgUrl:
+        "https://i2.seadn.io/ethereum/a68479575a6e46c6a2b999a8c855c3c0/70a898541700d441c15b9f7e990b48/8d70a898541700d441c15b9f7e990b48.jpeg?w=2000",
+      title: "Visions 3",
+      subTitle: "goblin.wtf3",
+      id: 3,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 9.3,
+    },
   },
   {
     id: 4,
-    username: "Visions 4",
-    subUserName: "goblin.wtf",
+    title: "Visions 4",
+    subtitle: "goblin.wtf",
     image:
       "https://i2.seadn.io/collection/negatives-nft/image_type_hero_desktop/ad0999c3ca6545d1a8185d70480f52/cdad0999c3ca6545d1a8185d70480f52.png?w=2000",
     slidesInfo: [
@@ -117,11 +151,22 @@ export const collectionSlides = [
         value: "3.5%",
       },
     ],
+    items: {
+      imgUrl:
+        "https://i2.seadn.io/collection/negatives-nft/image_type_hero_desktop/ad0999c3ca6545d1a8185d70480f52/cdad0999c3ca6545d1a8185d70480f52.png?w=2000",
+      title: "Visions 4",
+      subTitle: "goblin.wtf4",
+      id: 4,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 9.3,
+    },
   },
   {
     id: 5,
-    username: "Visions 5",
-    subUserName: "goblin.wtf",
+    title: "Visions 5",
+    subtitle: "goblin.wtf",
     image:
       "https://i2.seadn.io/admin-uploads/5a05974101bc6e086543b63e9eec5a/8c5a05974101bc6e086543b63e9eec5a.png?w=2000",
     slidesInfo: [
@@ -142,6 +187,17 @@ export const collectionSlides = [
         value: "3.5%",
       },
     ],
+    items: {
+      imgUrl:
+        "https://i2.seadn.io/admin-uploads/5a05974101bc6e086543b63e9eec5a/8c5a05974101bc6e086543b63e9eec5a.png?w=2000",
+      title: "Visions 5",
+      subTitle: "goblin.wtf5",
+      id: 5,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 9.3,
+    },
   },
 ];
 
@@ -440,6 +496,10 @@ export const editorsPicks = {
       title: "Abstract Illusions",
       subTitle: "by Mira Nova",
       id: 1,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 9.3,
     },
     {
       imgUrl:
@@ -447,6 +507,10 @@ export const editorsPicks = {
       title: "Fragments of Tomorrow",
       subTitle: "by Dusk Studio",
       id: 2,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "BTC",
+      count: 0.0617,
+      percentage: -45.9,
     },
     {
       imgUrl:
@@ -454,6 +518,10 @@ export const editorsPicks = {
       title: "Liquid Galaxy",
       subTitle: "by FluidForm",
       id: 3,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 70.8,
     },
     {
       imgUrl:
@@ -461,6 +529,10 @@ export const editorsPicks = {
       title: "Liquid Galaxy",
       subTitle: "by FluidForm",
       id: 4,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 45,
     },
     {
       imgUrl:
@@ -468,6 +540,10 @@ export const editorsPicks = {
       title: "Liquid Galaxy",
       subTitle: "by FluidForm",
       id: 5,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: -6.5,
     },
   ],
 };
@@ -482,6 +558,10 @@ export const newArrivals = {
       title: "Skyborne Tales",
       subTitle: "by AeroWorks",
       id: 1,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 10.5,
     },
     {
       imgUrl:
@@ -489,6 +569,10 @@ export const newArrivals = {
       title: "Neon Samurai",
       subTitle: "by RoninNFT",
       id: 2,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 79.8,
     },
     {
       imgUrl:
@@ -496,6 +580,10 @@ export const newArrivals = {
       title: "The Aurora Path",
       subTitle: "by LumaArt",
       id: 3,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: -54.3,
     },
     {
       imgUrl:
@@ -503,6 +591,10 @@ export const newArrivals = {
       title: "The Aurora Path",
       subTitle: "by LumaArt",
       id: 4,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 69.1,
     },
     {
       imgUrl:
@@ -510,6 +602,10 @@ export const newArrivals = {
       title: "The Aurora Path",
       subTitle: "by LumaArt",
       id: 5,
+      tags: ["TOKEN #32", "ECE 123", "NLE 42", "ETHERIUM"],
+      currency: "ETH",
+      count: 0.0006,
+      percentage: 70.2,
     },
   ],
 };
@@ -615,6 +711,34 @@ export const moreInfoItems = [
       "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
     amount: 0.0021,
     name: "Offrenda #19",
+    currency: "ETH",
+  },
+  {
+    imgUrl:
+      "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+    amount: 0.0008,
+    name: "Offrenda #27",
+    currency: "ETH",
+  },
+  {
+    imgUrl:
+      "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+    amount: 0.0008,
+    name: "Offrenda #27",
+    currency: "ETH",
+  },
+  {
+    imgUrl:
+      "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+    amount: 0.0008,
+    name: "Offrenda #27",
+    currency: "ETH",
+  },
+  {
+    imgUrl:
+      "https://i2.seadn.io/collection/mini-souls-sould/image_type_hero_desktop/c0af6c394692dc443609e8a06655e8/a4c0af6c394692dc443609e8a06655e8.jpeg?h=300&w=600",
+    amount: 0.0008,
+    name: "Offrenda #27",
     currency: "ETH",
   },
   {

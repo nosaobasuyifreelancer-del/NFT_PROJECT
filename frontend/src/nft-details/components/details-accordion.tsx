@@ -102,11 +102,11 @@ const nftDetailItems = [
     title: "More from this collection",
     icon: <MoreInfo />,
     content: (
-      <div className="flex flex-wrap gap-3 basis-1/3">
+      <div className="flex gap-3 basis-1/3 overflow-x-auto">
         {moreInfoItems.map((item, index) => (
           <div
             key={index}
-            className="flex-none basis-full sm:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)]"
+            className="flex-none basis-[80%] md:basis-[65%]  lg:basis-[calc(33.333%-1rem)]"
           >
             <MoreInfoCard
               imgUrl={item.imgUrl}

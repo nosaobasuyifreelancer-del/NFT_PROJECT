@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/shared/components/ui/carousel";
-import { FeatureCollectionCard } from "../cards/feature-collection-card";
+import FeatureCollectionCard from "../cards/feature-collection-card";
 import TrendingCollectionsCard, {
   type INFTCardData,
 } from "../cards/trending-nfts-card";
@@ -113,12 +113,11 @@ function TweenCarousel({
                 ))}
               </div>
             ) : (
-              <FeatureCollectionCard
-                imgUrl={pair[0].imgUrl}
-                title={pair[0].title}
-                subTitle={pair[0].subTitle}
-                maxTitleLength={20}
-              />
+              <>
+                {pair.map((card, i) => (
+                  <FeatureCollectionCard key={i} nft={card} />
+                ))}
+              </>
             )}
           </CarouselItem>
         ))}

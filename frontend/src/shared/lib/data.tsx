@@ -16,7 +16,7 @@ export const sideBarMenu = [
     icon: <HomeIcon />,
   },
   {
-    title: "profile",
+    title: "Profile",
     url: "/profile",
     icon: <CircleUser />,
   },

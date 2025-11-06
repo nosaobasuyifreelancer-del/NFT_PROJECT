@@ -11,15 +11,15 @@ export default function ConnectWallet({ onClose }: { onClose: () => void }) {
     <Dialog open onOpenChange={onClose}>
       <DialogContent
         variant="md"
-        className="lg:pt-12 lg:px-6 lg:pb-6 pb-4 pt-8 px-4  overflow-hidden"
+        className="lg:pt-12 lg:px-6 lg:pb-6 pb-4 pt-8 px-4  overflow-hidden "
       >
         <div className="flex items-center justify-center lg:mb-6 lg:h-24 mb-4">
           <HomeLogo />
         </div>
-        <span className="font-medium text-2xl mb-8 text-center leading-tight">
+        <span className="font-medium text-2xl mb-4 lg:mb-8 text-center leading-tight scrollbar-hide ">
           Connect with Legend
         </span>
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col gap-2 overflow-y-auto">
           <div className="flex flex-col text-center">
             <ul className="*:first:rounded-t-xl *:last:rounded-b-xl **:data-[id=Item]:border-0 **:data-[id=Item]:overflow-hidden border border-border-2 *:not-last:border-b! *:not-last:border-b-border-2 overflow-hidden rounded-xl bg-bg-primary">
               {walletTypes.map((wallet, i) => (
